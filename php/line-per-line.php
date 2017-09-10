@@ -28,8 +28,8 @@ while (($line = fgets($handle)) !== false) {
     }
 }
 
-echo $emailCount . ' emails found' . PHP_EOL;
-echo $uriCount . ' URIs found' . PHP_EOL;
+echo $emailCount . ' emails found.' . PHP_EOL;
+echo $uriCount . ' URIs found.' . PHP_EOL;
 echo $ipCount . ' IPs found.' . PHP_EOL;
 
 fclose($handle);
