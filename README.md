@@ -24,9 +24,9 @@ System: MacBook Pro (Retina, 15-inch, Late 2013), 2.3 GHz Intel Core i7, 16 GB 1
 
 Language | Entire File(ms) | Line per line(ms)
 --- | --- | ---
-**Crystal 0.23.1** | 711.4 | 271.0
-**Javascript - Node.js 7.7.3** | 255.5 | 390.2
-**PHP 7.1.7** | 153.1 | 240.6
+**Crystal 0.23.1** | 713.8 | 279.3
+**Javascript - Node.js 7.7.3** | 259.1 | 378.0
+**PHP 7.1.7** | 156.7 | 245.4
 
 *Sorted alphabetically.*
 
