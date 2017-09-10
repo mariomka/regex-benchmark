@@ -11,3 +11,12 @@ bench 'node javascript/line-per-line.js input-text.txt'
 
 bench 'php php/entire-file.php input-text.txt'
 bench 'php php/line-per-line.php input-text.txt'
+
+bench 'python python/entire-file.py input-text.txt'
+bench 'python python/line-per-line.py input-text.txt'
+
+bench 'python3 python/entire-file.py input-text.txt'
+bench 'python3 python/line-per-line.py input-text.txt'
+
+bench 'pypy python/entire-file.py input-text.txt'
+bench 'pypy python/line-per-line.py input-text.txt'

@@ -27,6 +27,9 @@ Language | Entire File(ms) | Line per line(ms)
 **Crystal 0.23.1** | 713.8 | 279.3
 **Javascript - Node.js 7.7.3** | 259.1 | 378.0
 **PHP 7.1.7** | 156.7 | 245.4
+**Python 2.7.13** | 883.0 | 2299.0
+**Python 3.6.2** | 1280.0 | 2659.0
+**Python - PyPy 5.8.0** | 488.1 | 793.9
 
 *Sorted alphabetically.*
 
@@ -38,8 +41,13 @@ Language | Entire File(ms) | Line per line(ms)
 
 All contributions are welcome, from the tiny optimizations to new implementations.
 
-The requirement is following current implementations style.
+The requirement is following the current implementations style.
+
+# Kudos
+
+- Heng Li's for his work on [Benchmark of Regex Libraries](http://lh3lh3.users.sourceforge.net/reb.shtml).
+- [Madrid Devs](http://madriddevs.org/).
 
 # License
 
-MIT © [Mario Juárez](https://github.com/mariomka)
+MIT © [Mario Juárez](https://github.com/mariomka).
