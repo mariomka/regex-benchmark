@@ -24,12 +24,13 @@ System: MacBook Pro (Retina, 15-inch, Late 2013), 2.3 GHz Intel Core i7, 16 GB 1
 
 Language | Entire File(ms) | Line per line(ms)
 --- | ---: | ---:
-**Crystal 0.23.1** | 713.8 | 279.3
-**Javascript - Node.js 7.7.3** | 259.1 | 378.0
-**PHP 7.1.7** | 156.7 | 245.4
-**Python 2.7.13** | 883.0 | 2299.0
-**Python 3.6.2** | 1280.0 | 2659.0
-**Python - PyPy 5.8.0** | 488.1 | 793.9
+**Crystal 0.23.1** | 677.4 | 253.2
+**Javascript - Node.js 7.7.3** | 253.7 | 362.2
+**PHP 7.1.7** | 153.3 | 243.2
+**Python 2.7.13** | 864.2 | 2113.0
+**Python 3.6.2** | 1285.0 | 2180.0
+**Python - PyPy 5.8.0** | 493.3 | 677.3
+**Rust 1.20.0** | 104.0 | 180.1
 
 *Sorted alphabetically.*
 

@@ -2,7 +2,6 @@
 
 crystal build crystal/entire-file.cr --release -o crystal/bin/entire-file
 crystal build crystal/line-per-line.cr --release -o crystal/bin/line-per-line
-
 bench 'crystal/bin/entire-file input-text.txt'
 bench 'crystal/bin/line-per-line input-text.txt'
 
@@ -20,3 +19,7 @@ bench 'python3 python/line-per-line.py input-text.txt'
 
 bench 'pypy python/entire-file.py input-text.txt'
 bench 'pypy python/line-per-line.py input-text.txt'
+
+cargo build --release --manifest-path=rust/Cargo.toml &> /dev/null
+bench 'rust/target/release/entire-file input-text.txt'
+bench 'rust/target/release/line-per-line input-text.txt'

@@ -1,0 +1,15 @@
+[package]
+name = "regex-benchmark"
+version = "1.0.0"
+authors = ["Mario Juarez <mario@mjp.one>"]
+
+[dependencies]
+regex = "0.2"
+
+[[bin]]
+name = "line-per-line"
+path = "src/line-per-line.rs"
+
+[[bin]]
+name = "entire-file"
+path = "src/entire-file.rs"
