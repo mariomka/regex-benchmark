@@ -4,7 +4,7 @@ It's just a simple regex benchmark for different languages.
 
 ## Input text
 
-The [Input text](input-text.txt) is a concatenation of [Learn X in Y minutes](https://github.com/adambard/learnxinyminutes-docs) repository.
+The [input text](input-text.txt) is a concatenation of [Learn X in Y minutes](https://github.com/adambard/learnxinyminutes-docs) repository.
 
 ## Regex patterns
 
