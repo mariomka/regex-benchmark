@@ -6,6 +6,7 @@ const BUILDS = [
     'Crystal 0.23.1'       => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C# - Mono 5.2.0'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
     'C# - .Net Core 2.0.0' => 'dotnet build csharp/benchmark.csproj -c Release',
+    'Java 1.8.0'           => 'javac java/Benchmark.java',
     'Rust 1.20.0'          => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
 
@@ -13,6 +14,7 @@ const COMMANDS = [
     'Crystal 0.23.1'             => 'crystal/bin/benchmark',
     'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
     'C# - .Net Core 2.0.0'       => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
+    'Java 1.8.0'                 => 'java -classpath java Benchmark',
     'Javascript - Node.js 7.7.3' => 'node javascript/benchmark.js',
     'PHP 7.1.7'                  => 'php php/benchmark.php',
     'Python 2.7.13'              => 'python python/benchmark.py',
