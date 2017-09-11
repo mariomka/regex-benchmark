@@ -25,6 +25,10 @@ bench 'pypy python/benchmark.py input-text.txt email'
 bench 'pypy python/benchmark.py input-text.txt uri'
 bench 'pypy python/benchmark.py input-text.txt ip'
 
+bench 'ruby ruby/benchmark.rb input-text.txt email'
+bench 'ruby ruby/benchmark.rb input-text.txt uri'
+bench 'ruby ruby/benchmark.br input-text.txt ip'
+
 cargo build --release --manifest-path=rust/Cargo.toml &> /dev/null
 bench 'rust/target/release/benchmark input-text.txt email'
 bench 'rust/target/release/benchmark input-text.txt uri'
