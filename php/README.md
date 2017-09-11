@@ -3,6 +3,5 @@
 ## How to run
 
 ```sh
-php entire-file.php <filename>
-php line-per-line.php <filename>
+php benchmark.php <filename> <regex-name>
 ```

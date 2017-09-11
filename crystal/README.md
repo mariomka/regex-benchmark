@@ -3,13 +3,11 @@
 ## How to build
 
 ```sh
-crystal build crystal/entire-file.cr --release -o bin/entire-file
-crystal build crystal/line-per-line.cr --release -o bin/line-per-line
+crystal build benchmark.cr --release -o bin/benchmark
 ```
 
 ## How to run
 
 ```sh
-./bin/entire-file <filename>
-./bin/line-per-line <filename>
+./bin/benchmark <filename> <regex-name>
 ```

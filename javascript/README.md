@@ -3,6 +3,5 @@
 ## How to run
 
 ```sh
-node entire-file.js <filename>
-node line-per-line.js <filename>
+node benchmark.js <filename> <regex-name>
 ```

@@ -9,6 +9,5 @@ cargo build --release
 ## How to run
 
 ```sh
-./target/release/entire-file <filename>
-./target/release/line-per-line <filename>
+./target/release/benchmark <filename> <regex-name>
 ```
