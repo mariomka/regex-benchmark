@@ -17,10 +17,6 @@ else
     exit 2
 end
 
-count = 0
-
-data.scan(pattern) do |matchData|
-  count += 1
-end
+count = data.scan(pattern).size
 
 puts "#{count} found."
