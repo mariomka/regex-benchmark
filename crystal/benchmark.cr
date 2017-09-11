@@ -7,7 +7,7 @@ data = File.read(ARGV[0])
 
 case ARGV[1]
 when "email"
-    pattern = /[\w\.+-]+@[\w\.+-]+\.[\w\.-]+/
+    pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/
 when "uri"
     pattern = /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/
 when "ip"

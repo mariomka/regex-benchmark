@@ -9,7 +9,7 @@ const data = fs.readFileSync(process.argv[2], 'utf8')
 
 switch (process.argv[3]) {
   case 'email':
-    pattern = /[\w\.+-]+@[\w\.+-]+\.[\w\.-]+/g
+    pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/g
     break
   case 'uri':
     pattern = /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/g

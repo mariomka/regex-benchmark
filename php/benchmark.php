@@ -9,7 +9,7 @@ $data = file_get_contents($argv[1]);
 
 switch($argv[2]) {
     case 'email':
-        $pattern = '/[\w\.+-]+@[\w\.+-]+\.[\w\.-]+/';
+        $pattern = '/[\w\.+-]+@[\w\.-]+\.[\w\.-]+/';
         break;
     case 'uri':
         $pattern = '/[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/';
