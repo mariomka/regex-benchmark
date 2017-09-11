@@ -12,18 +12,18 @@ const BUILDS = [
 ];
 
 const COMMANDS = [
-    //'Crystal 0.23.1'             => 'crystal/bin/benchmark',
-    //'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
-    //'C# - .Net Core 2.0.0'       => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
-    //'Java 1.8.0'                 => 'java -classpath java Benchmark',
-    //'Javascript - Node.js 7.7.3' => 'node javascript/benchmark.js',
+    'Crystal 0.23.1'             => 'crystal/bin/benchmark',
+    'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
+    'C# - .Net Core 2.0.0'       => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
+    'Java 1.8.0'                 => 'java -classpath java Benchmark',
+    'Javascript - Node.js 7.7.3' => 'node javascript/benchmark.js',
     'Kotlin 1.1.4'               => 'kotlin kotlin/benchmark.jar',
-    //'PHP 7.1.7'                  => 'php php/benchmark.php',
-    //'Python 2.7.13'              => 'python python/benchmark.py',
-    //'Python 3.6.2'               => 'python3 python/benchmark.py',
-    //'Python - PyPy 5.8.0'        => 'pypy python/benchmark.py',
-    //'Ruby 2.4.1'                 => 'ruby ruby/benchmark.rb',
-    //'Rust 1.20.0'                => 'rust/target/release/benchmark',
+    'PHP 7.1.7'                  => 'php php/benchmark.php',
+    'Python 2.7.13'              => 'python python/benchmark.py',
+    'Python 3.6.2'               => 'python3 python/benchmark.py',
+    'Python - PyPy 5.8.0'        => 'pypy python/benchmark.py',
+    'Ruby 2.4.1'                 => 'ruby ruby/benchmark.rb',
+    'Rust 1.20.0'                => 'rust/target/release/benchmark',
 ];
 
 const PATTERNS = [
