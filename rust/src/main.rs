@@ -23,11 +23,10 @@ fn main() {
     };
 
     let regex = Regex::new(pattern).unwrap();
-
-    let mut count = 0;
-
     let mut file = File::open(env::args().nth(1).unwrap()).unwrap();
     let mut data = String::new();
+    let mut count = 0;
+
     file.read_to_string(&mut data).unwrap();
 
     for captures in regex.captures_iter(&data) {

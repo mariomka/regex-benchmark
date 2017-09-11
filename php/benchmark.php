@@ -5,9 +5,7 @@ if (count($argv) != 3) {
     die(1);
 }
 
-$data = file_get_contents($argv[1]);
-
-switch($argv[2]) {
+switch ($argv[2]) {
     case 'email':
         $pattern = '/[\w\.+-]+@[\w\.-]+\.[\w\.-]+/';
         break;
@@ -22,6 +20,7 @@ switch($argv[2]) {
         die(2);
 }
 
+$data  = file_get_contents($argv[1]);
 $count = preg_match_all($pattern, $data, $matches);
 
 echo $count . ' found.' . PHP_EOL;

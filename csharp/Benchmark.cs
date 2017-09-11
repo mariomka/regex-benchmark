@@ -9,8 +9,6 @@ class Benchmark {
         Environment.Exit(1);
     }
 
-    StreamReader reader = new System.IO.StreamReader(args[0]);
-    string data = reader.ReadToEnd();
     string pattern = null;
 
     switch (args[1])
@@ -30,6 +28,8 @@ class Benchmark {
         break;
     }
 
+    StreamReader reader = new System.IO.StreamReader(args[0]);
+    string data = reader.ReadToEnd();
     MatchCollection matches = Regex.Matches(data, pattern);
     int count = matches.Count;
 

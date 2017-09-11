@@ -3,8 +3,6 @@ if(ARGV.size != 2)
   exit 1
 end
 
-data = File.read(ARGV[0])
-
 case ARGV[1]
 when "email"
     pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/
@@ -17,6 +15,7 @@ else
     exit 2
 end
 
+data = File.read(ARGV[0])
 count = data.scan(pattern).size
 
 puts "#{count} found."

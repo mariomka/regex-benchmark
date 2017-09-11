@@ -5,8 +5,6 @@ if (process.argv.length !== 4) {
   process.exit(1)
 }
 
-const data = fs.readFileSync(process.argv[2], 'utf8')
-
 switch (process.argv[3]) {
   case 'email':
     pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/g
@@ -22,6 +20,7 @@ switch (process.argv[3]) {
     process.exit(2)
 }
 
-let matches = data.match(pattern)
+const data = fs.readFileSync(process.argv[2], 'utf8')
+const matches = data.match(pattern)
 
 console.log(`${matches.length} found.`)
