@@ -38,44 +38,59 @@ const PATTERNS = [
 
 echo '- Build' . PHP_EOL;
 
-foreach (BUILDS as $language => $build) {
-    shell_exec($build);
+foreach (BUILDS as $language => $buildCmd) {
+    shell_exec($buildCmd);
 
     echo $language . ' built.' . PHP_EOL;
 }
 
 echo PHP_EOL . '- Run' . PHP_EOL;
 
+$results = [];
+
 foreach (COMMANDS as $language => $command) {
-    $benchmark = 'bench --csv report.csv';
+    $benchmarkCmd = 'bench --csv report.csv';
 
     foreach (PATTERNS as $pattern) {
-        $benchmark .= ' \'' . $command . ' input-text.txt ' . $pattern . '\'';
+        $benchmarkCmd .= ' \'' . $command . ' input-text.txt ' . $pattern . '\'';
     }
 
-    shell_exec($benchmark);
+    shell_exec($benchmarkCmd);
 
     $handler = fopen(REPORT_FILENAME, 'r');
-    $results = [];
+
+    $result = [];
 
     while (($line = fgetcsv($handler)) !== false) {
         if ($line[0] == 'Name') {
             continue;
         }
 
-        $results[] = floatval($line[1]) * 1000;
+        $result[] = floatval($line[1]) * 1000;
     }
 
     fclose($handler);
     unlink(REPORT_FILENAME);
 
-    $total = number_format(array_reduce($results, function ($total, $result) {
+    $result[] = array_reduce($result, function ($total, $result) {
         return $total + $result;
-    }), 2, '.', '');
+    });
 
-    $results = array_map(function ($result) {
-        return number_format($result, 2, '.', '');
-    }, $results);
+    $results[$language] = $result;
 
-    echo '**' . $language . '** | ' . implode(' | ', $results) . ' | ' . $total . PHP_EOL;
+    echo $language . ' ran.' . PHP_EOL;
 }
+
+echo PHP_EOL . '- Results' . PHP_EOL;
+
+uasort($results, function($a, $b) {
+    return $a[3] < $b[3] ? -1 : 1;
+});
+
+$results = array_walk($results, function ($result, $language) {
+    $result = array_map(function ($time) {
+        return number_format($time, 2, '.', '');
+    }, $result);
+
+    echo '**' . $language . '** | ' . implode(' | ', $result) . PHP_EOL;
+});
