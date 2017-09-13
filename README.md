@@ -55,7 +55,7 @@ The requirement is following the current implementations style.
 # Kudos
 
 - Heng Li's for his work on [Benchmark of Regex Libraries](http://lh3lh3.users.sourceforge.net/reb.shtml).
-- [Madrid Devs](http://madriddevs.org/).
+- A "challenge" on [Madrid Devs](http://madriddevs.org/) group inspired me.
 
 # License
 
