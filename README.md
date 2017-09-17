@@ -4,7 +4,7 @@ It's just a simple regex benchmark for different programming languages.
 
 Measures how long it takes to find and count non-overlapping occurrences.
 
-Isn't a Holy Grail of the regex benchmarks. It can be helpful for choosing a language but it's not only about performance, each language has his engine and offers different features (like UTF support, backreferences, capturing groups...)
+Isn't a Holy Grail of the regex benchmarks. It can be helpful for choosing a language but it's not only about performance, each language has its engine and offers different features (like UTF support, backreferences, capturing groups...)
 
 ## Input text
 
@@ -26,7 +26,7 @@ The patterns are applied to the whole file.
 
 Measuring is done inside the programs to avoid include startup, reading and writing times on results.
 
-Elapsed times include pattern compilation, find and count matches.
+Elapsed time include pattern compilation, find and count occurrences.
 
 ## Performance
 
