@@ -29,7 +29,7 @@ void measure(char *data, char *pattern)
 {
   int count = 0;
   double elapsed;
-  struct timeval start, end;
+  struct timespec start, end;
 
   pcre2_code *re;
   int rc;
@@ -42,7 +42,7 @@ void measure(char *data, char *pattern)
   size_t subject_length;
   PCRE2_SIZE *ovector;
 
-  gettimeofday(&start, NULL);
+  clock_gettime(CLOCK_MONOTONIC, &start);
 
   length = strlen(data);
   re = pcre2_compile((PCRE2_SPTR)pattern, PCRE2_ZERO_TERMINATED, 0, &errornumber, &erroroffset, NULL);
@@ -56,8 +56,8 @@ void measure(char *data, char *pattern)
     offset = ovector[1];
   }
 
-  gettimeofday(&end, NULL);
-  elapsed = (end.tv_sec - start.tv_sec) * 1000.0 + (end.tv_usec - start.tv_usec) / 1000.0;
+  clock_gettime(CLOCK_MONOTONIC, &end);
+  elapsed = ((end.tv_sec - start.tv_sec) * 1E+9 + end.tv_nsec - start.tv_nsec) / 1E+6;
 
   printf("%f - %d\n", elapsed, count);
 }
