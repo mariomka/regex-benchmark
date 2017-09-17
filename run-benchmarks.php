@@ -16,7 +16,7 @@ const BUILDS = [
 ];
 
 const COMMANDS = [
-    'C - PCRE 2 10.30'           => './c/bin/benchmark input-text.txt',
+    'C - PCRE 2 10.30'           => 'c/bin/benchmark',
     'Crystal 0.23.1'             => 'crystal/bin/benchmark',
     'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
     'C# - .Net Core 2.0.0'       => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
