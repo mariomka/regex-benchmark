@@ -1,7 +1,7 @@
 require "benchmark"
 
 if (ARGV.size != 1)
-  puts "Usage: line-per-line <filename>"
+  puts "Usage: benchmark <filename>"
   exit 1
 end
 

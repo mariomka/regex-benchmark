@@ -3,7 +3,7 @@ import re
 from timeit import default_timer as timer
 
 if len(sys.argv) != 2:
-    print('Usage: python line-per-line.py <filename>')
+    print('Usage: python benchmark.py <filename>')
     sys.exit(1)
 
 def measure(data, pattern):

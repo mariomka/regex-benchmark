@@ -24,7 +24,7 @@ fn measure(data: String, pattern: String) {
 
 fn main() {
     if env::args().len() != 2 {
-        println!("Usage: line-per-line <filename>");
+        println!("Usage: benchmark <filename>");
         process::exit(1);
     }
 

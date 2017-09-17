@@ -1,7 +1,7 @@
 <?php
 
 if (count($argv) != 2) {
-    echo 'Usage: php entire-file.php <filename>';
+    echo 'Usage: php benchmark.php <filename>';
     die(1);
 }
 

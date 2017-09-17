@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 if (process.argv.length !== 3) {
-  console.log('Usage: node line-per-line.js <filename>')
+  console.log('Usage: node benchmark.js <filename>')
   process.exit(1)
 }
 
