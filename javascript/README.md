@@ -3,5 +3,5 @@
 ## How to run
 
 ```sh
-node benchmark.js <filename> <regex-name>
+node benchmark.js <filename>
 ```

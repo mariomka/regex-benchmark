@@ -1,24 +1,29 @@
 import sys
 import re
+from timeit import default_timer as timer
 
-if len(sys.argv) != 3:
-    print('Usage: python line-per-line.py <filename> <regex-name>')
+if len(sys.argv) != 2:
+    print('Usage: python line-per-line.py <filename>')
     sys.exit(1)
 
-pattern = {
-    'email': '[\w\.+-]+@[\w\.-]+\.[\w\.-]+',
-    'uri': '[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?',
-    'ip': '(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])'
-}.get(sys.argv[2], None)
+def measure(data, pattern):
+    start_time = timer()
 
-if pattern is None:
-    print('Regex name must be: email, uri or ip.')
-    sys.exit(2)
+    regex = re.compile(pattern)
+    matches = re.findall(regex, data)
 
-regex = re.compile(pattern)
+    elapsed_time = timer() - start_time
+
+    print(str(elapsed_time * 1000) + ' - ' + str(len(matches)))
 
 with open(sys.argv[1]) as file:
     data = file.read()
-    matches = re.findall(regex, data)
 
-print(str(len(matches)) + ' found.')
+    # Email
+    measure(data, '[\w\.+-]+@[\w\.-]+\.[\w\.-]+')
+
+    # URI
+    measure(data, '[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?')
+
+    # IP
+    measure(data, '(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])')

@@ -3,5 +3,5 @@
 ## How to run
 
 ```sh
-python benchmark.py <filename> <regex-name>
+python benchmark.py <filename>
 ```

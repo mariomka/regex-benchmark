@@ -9,5 +9,5 @@ kotlinc benchmark.kt -include-runtime -d benchmark.jar
 ## How to run
 
 ```sh
-kotlin benchmark.jar <filename> <regex-name>
+kotlin benchmark.jar <filename>
 ```

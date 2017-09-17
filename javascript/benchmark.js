@@ -1,26 +1,27 @@
 const fs = require('fs')
 
-if (process.argv.length !== 4) {
-  console.log('Usage: node line-per-line.js <filename> <regex-name>')
+if (process.argv.length !== 3) {
+  console.log('Usage: node line-per-line.js <filename>')
   process.exit(1)
 }
 
-switch (process.argv[3]) {
-  case 'email':
-    pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/g
-    break
-  case 'uri':
-    pattern = /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/g
-    break
-  case 'ip':
-    pattern = /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])/g
-    break
-  default:
-    console.log('Regex name must be: email, uri or ip.')
-    process.exit(2)
+function measure(data, pattern) {
+  const start = process.hrtime()
+
+  const matches = data.match(pattern)
+
+  const end = process.hrtime(start);
+  
+  console.log((end[0] * 1e9 + end[1]) / 1000000 + ' - ' + matches.length);
 }
 
 const data = fs.readFileSync(process.argv[2], 'utf8')
-const matches = data.match(pattern)
 
-console.log(`${matches.length} found.`)
+// Email
+measure(data, /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/g)
+
+// URI
+measure(data, /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/g)
+
+// IP
+measure(data, /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])/g)

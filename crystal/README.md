@@ -9,5 +9,5 @@ crystal build benchmark.cr --release -o bin/benchmark
 ## How to run
 
 ```sh
-./bin/benchmark <filename> <regex-name>
+./bin/benchmark <filename>
 ```

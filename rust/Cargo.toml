@@ -5,3 +5,4 @@ authors = ["Mario Juarez <mario@mjp.one>"]
 
 [dependencies]
 regex = "0.2"
+time = "0.1"

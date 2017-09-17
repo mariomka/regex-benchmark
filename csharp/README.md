@@ -14,8 +14,8 @@ dotnet build -c Release
 
 ```sh
 # Mono
-mono bin-mono/benchmark.exe <filename> <regex-name>
+mono bin-mono/benchmark.exe <filename>
 
 # .Net Core
-dotnet bin/Release/netcoreapp2.0/benchmark.dll <filename> <regex-name>
+dotnet bin/Release/netcoreapp2.0/benchmark.dll <filename>
 ```

@@ -1,7 +1,7 @@
 <?php
 
-const REPORT_FILENAME = './report.csv';
-
+const PATTERNS_COUNT = 3;
+const RUN_TIMES = 10;
 const BUILDS = [
     'Crystal 0.23.1'       => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C# - Mono 5.2.0'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
@@ -11,7 +11,6 @@ const BUILDS = [
     'Kotlin 1.1.4'         => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Rust 1.20.0'          => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
-
 const COMMANDS = [
     'Crystal 0.23.1'             => 'crystal/bin/benchmark',
     'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
@@ -28,14 +27,6 @@ const COMMANDS = [
     'Rust 1.20.0'                => 'rust/target/release/benchmark',
 ];
 
-const PATTERNS = [
-    'email',
-    'uri',
-    'ip',
-];
-
-@unlink(REPORT_FILENAME);
-
 echo '- Build' . PHP_EOL;
 
 foreach (BUILDS as $language => $buildCmd) {
@@ -49,34 +40,22 @@ echo PHP_EOL . '- Run' . PHP_EOL;
 $results = [];
 
 foreach (COMMANDS as $language => $command) {
-    $benchmarkCmd = 'bench --csv report.csv';
+    $currentResults = [];
 
-    foreach (PATTERNS as $pattern) {
-        $benchmarkCmd .= ' \'' . $command . ' input-text.txt ' . $pattern . '\'';
-    }
+    for ($i = 0; $i < RUN_TIMES; $i++) {
+        $out = shell_exec($command . ' input-text.txt');
+        preg_match_all('/^\d+\.\d+/m', $out, $matches);
 
-    shell_exec($benchmarkCmd);
-
-    $handler = fopen(REPORT_FILENAME, 'r');
-
-    $result = [];
-
-    while (($line = fgetcsv($handler)) !== false) {
-        if ($line[0] == 'Name') {
-            continue;
+        for ($j = 0; $j < PATTERNS_COUNT; $j++) {
+            $currentResults[$j][] = $matches[0][$j];
         }
-
-        $result[] = floatval($line[1]) * 1000;
     }
 
-    fclose($handler);
-    unlink(REPORT_FILENAME);
+    for ($i = 0; $i < PATTERNS_COUNT; $i++) {
+        $results[$language][] = array_sum($currentResults[$i]) / count($currentResults[$i]);
+    }
 
-    $result[] = array_reduce($result, function ($total, $result) {
-        return $total + $result;
-    });
-
-    $results[$language] = $result;
+    $results[$language][PATTERNS_COUNT] = array_sum($results[$language]);
 
     echo $language . ' ran.' . PHP_EOL;
 }
@@ -84,7 +63,7 @@ foreach (COMMANDS as $language => $command) {
 echo PHP_EOL . '- Results' . PHP_EOL;
 
 uasort($results, function($a, $b) {
-    return $a[3] < $b[3] ? -1 : 1;
+    return $a[PATTERNS_COUNT] < $b[PATTERNS_COUNT] ? -1 : 1;
 });
 
 $results = array_walk($results, function ($result, $language) {

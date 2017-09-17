@@ -6,30 +6,29 @@ import (
     "log"
     "os"
     "regexp"
+    "time"
 )
 
-func main() {
-    if len(os.Args) != 3 {
-        fmt.Println("Usage: benchmark <filename> <regex-name>")
-        os.Exit(1)
-    }
-
-    var pattern string
-    switch os.Args[2] {
-        case "email":
-            pattern = `[\w\.+-]+@[\w\.-]+\.[\w\.-]+`
-        case "uri":
-            pattern = `[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?`
-        case "ip":
-            pattern = `(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])`
-        default:
-            fmt.Println("Regex name must be: email, uri or ip.")
-            os.Exit(2)
-    }
-
+func measure(data string, pattern string) {
+    start := time.Now()
+    
     r, err := regexp.Compile(pattern)
     if err != nil {
         log.Fatal(err)
+    }
+
+    matches := r.FindAllString(data, -1)
+    count := len(matches)
+    
+    elapsed := time.Since(start)
+
+    fmt.Printf("%f - %v\n", float64(elapsed) / float64(time.Millisecond), count)
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println("Usage: benchmark <filename>")
+        os.Exit(1)
     }
 
     filerc, err := os.Open(os.Args[1])
@@ -42,7 +41,12 @@ func main() {
     buf.ReadFrom(filerc)
     data := buf.String()
 
-    matches := r.FindAllString(data, -1)
+    // Email
+    measure(data, `[\w\.+-]+@[\w\.-]+\.[\w\.-]+`)
 
-    fmt.Printf("%v found.\n", len(matches))
+    // URI
+    measure(data, `[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?`)
+
+    // IP
+    measure(data, `(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])`)
 }

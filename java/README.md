@@ -9,6 +9,6 @@ javac Benchmark.java
 ## How to run
 
 ```sh
-java Benchmark <filename> <regex-name>
+java Benchmark <filename>
 ```
 

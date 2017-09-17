@@ -1,38 +1,40 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
-class Benchmark {
-  static void Main(string[] args) {
-    if(args.Length != 2) {
-        Console.WriteLine("Usage: benchmark <filename> <regex-name>");
-        Environment.Exit(1);
-    }
-
-    string pattern = null;
-
-    switch (args[1])
+class Benchmark
+{
+    static void Main(string[] args)
     {
-      case "email":
-        pattern = @"[\w\.+-]+@[\w\.-]+\.[\w\.-]+";
-        break;
-      case "uri":
-        pattern = @"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?";
-        break;
-      case "ip":
-        pattern = @"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])";
-        break;
-      default:
-        Console.WriteLine("Regex name must be: email, uri or ip.");
-        Environment.Exit(2);
-        break;
+        if (args.Length != 1)
+        {
+            Console.WriteLine("Usage: benchmark <filename>");
+            Environment.Exit(1);
+        }
+        
+        StreamReader reader = new System.IO.StreamReader(args[0]);
+        string data = reader.ReadToEnd();
+
+        // Email
+        Benchmark.Measure(data, @"[\w\.+-]+@[\w\.-]+\.[\w\.-]+");
+
+        // URI
+        Benchmark.Measure(data, @"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?");
+
+        // IP
+        Benchmark.Measure(data, @"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
     }
 
-    StreamReader reader = new System.IO.StreamReader(args[0]);
-    string data = reader.ReadToEnd();
-    MatchCollection matches = Regex.Matches(data, pattern);
-    int count = matches.Count;
+    static void Measure(string data, string pattern)
+    {
+        Stopwatch stopwatch = Stopwatch.StartNew();
 
-    Console.WriteLine(count + " found.");
-  }
+        MatchCollection matches = Regex.Matches(data, pattern);
+        int count = matches.Count;
+
+        stopwatch.Stop();
+
+        Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds.ToString("G", System.Globalization.CultureInfo.InvariantCulture) + " - " + count);
+    }
 }

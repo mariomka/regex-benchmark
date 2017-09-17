@@ -1,21 +1,26 @@
-if(ARGV.size != 2)
-  puts "Usage: ruby benchmark.rb <filename> <regex-name>"
+require "benchmark"
+
+if(ARGV.size != 1)
+  puts "Usage: ruby benchmark.rb <filename>"
   exit 1
 end
 
-case ARGV[1]
-when "email"
-    pattern = /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/
-when "uri"
-    pattern = /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/
-when "ip"
-    pattern = /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])/
-else
-    puts "Regex name must be: email, uri or ip."
-    exit 2
+def measure(data, pattern)
+  count = 0
+  elapsed = Benchmark.measure {
+    count = data.scan(pattern).size
+  }
+
+  puts "#{elapsed.real * 1000} - #{count}"
 end
 
 data = File.read(ARGV[0])
-count = data.scan(pattern).size
 
-puts "#{count} found."
+# Email
+measure(data, /[\w\.+-]+@[\w\.-]+\.[\w\.-]+/)
+
+# URI
+measure(data, /[\w]+:\/\/[^\/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?/)
+
+# IP
+measure(data, /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])/)

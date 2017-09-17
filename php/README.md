@@ -3,5 +3,5 @@
 ## How to run
 
 ```sh
-php benchmark.php <filename> <regex-name>
+php benchmark.php <filename>
 ```
