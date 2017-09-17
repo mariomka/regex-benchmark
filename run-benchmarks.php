@@ -24,6 +24,7 @@ const COMMANDS = [
     'Java 1.8.0'                 => 'java -classpath java Benchmark',
     'Javascript - Node.js 7.7.3' => 'node javascript/benchmark.js',
     'Kotlin 1.1.4'               => 'kotlin kotlin/benchmark.jar',
+    'Perl 5.26.0'                => 'perl perl/benchmark.pl input-text.txt',
     'PHP 7.1.7'                  => 'php php/benchmark.php',
     'Python 2.7.13'              => 'python python/benchmark.py',
     'Python 3.6.2'               => 'python3 python/benchmark.py',
