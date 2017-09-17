@@ -1,8 +1,11 @@
 <?php
 
 const PATTERNS_COUNT = 3;
+
 const RUN_TIMES = 10;
+
 const BUILDS = [
+    'C - PCRE 2 10.30'     => 'gcc -O3 -DNDEBUG -I/usr/local/include/ -L/usr/local/lib -lpcre2-8 -o c/bin/benchmark c/benchmark.c',
     'Crystal 0.23.1'       => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C# - Mono 5.2.0'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
     'C# - .Net Core 2.0.0' => 'dotnet build csharp/benchmark.csproj -c Release',
@@ -11,7 +14,9 @@ const BUILDS = [
     'Kotlin 1.1.4'         => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Rust 1.20.0'          => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
+
 const COMMANDS = [
+    'C - PCRE 2 10.30'           => './c/bin/benchmark input-text.txt',
     'Crystal 0.23.1'             => 'crystal/bin/benchmark',
     'C# - Mono 5.2.0'            => 'mono csharp/bin-mono/benchmark.exe',
     'C# - .Net Core 2.0.0'       => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
@@ -62,7 +67,7 @@ foreach (COMMANDS as $language => $command) {
 
 echo PHP_EOL . '- Results' . PHP_EOL;
 
-uasort($results, function($a, $b) {
+uasort($results, function ($a, $b) {
     return $a[PATTERNS_COUNT] < $b[PATTERNS_COUNT] ? -1 : 1;
 });
 
