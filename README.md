@@ -55,7 +55,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for find and count non-overlapping occurrences for the pattern.
 - **Total(ms)**: Indicates the sum of the above times.
 
-# Versions and notes
+### Versions and notes
 
 - **C**: Apple LLVM 8.1.0 (clang-802.0.42) with PCRE2 10.30 with JIT.
 - **Crystal**: crystal 0.23.1
