@@ -1,10 +1,8 @@
-#define PCRE2_CODE_UNIT_WIDTH 8
-
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
-#include <sys/types.h>
+
+#define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
 
 char *read_file(char *filename)
@@ -14,9 +12,10 @@ char *read_file(char *filename)
 
   FILE *fh = fopen(filename, "rb");
 
-  fseek(fh, 0L, SEEK_END);
+  fseek(fh, 0, SEEK_END);
   length = ftell(fh);
-  rewind(fh);
+  fseek(fh, 0, SEEK_SET);
+
   data = malloc(length);
 
   fread(data, length, 1, fh);
@@ -30,25 +29,29 @@ void measure(char *data, char *pattern)
   int count = 0;
   double elapsed;
   struct timespec start, end;
-
   pcre2_code *re;
-  int rc;
-  int length = 0;
-  int errornumber;
+  int errorcode;
   PCRE2_SIZE erroroffset;
-  PCRE2_SIZE offset = 0;
+  pcre2_match_context *match_ctx;
+  pcre2_jit_stack *stack;
   pcre2_match_data *match_data;
-  PCRE2_SPTR subject;
-  size_t subject_length;
+  int length;
+  PCRE2_SIZE offset = 0;
   PCRE2_SIZE *ovector;
 
   clock_gettime(CLOCK_MONOTONIC, &start);
 
-  length = strlen(data);
-  re = pcre2_compile((PCRE2_SPTR)pattern, PCRE2_ZERO_TERMINATED, 0, &errornumber, &erroroffset, NULL);
-  match_data = pcre2_match_data_create_from_pattern(re, NULL);
+  re = pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED, PCRE2_UTF, &errorcode, &erroroffset, NULL);
 
-  while (pcre2_match(re, (PCRE2_SPTR8)data, strlen(data), offset, PCRE2_NOTBOL | PCRE2_NOTEMPTY, match_data, NULL) == 1)
+  match_ctx = pcre2_match_context_create(NULL);
+  pcre2_jit_compile(re, PCRE2_JIT_COMPLETE);
+  stack = pcre2_jit_stack_create(0, 16384, NULL);
+  pcre2_jit_stack_assign(match_ctx, NULL, stack);
+
+  match_data = pcre2_match_data_create(1, NULL);
+  length = strlen(data);
+
+  while (pcre2_jit_match(re, (PCRE2_SPTR8) data, length, offset, 0, match_data, match_ctx) == 1)
   {
     count++;
 
@@ -57,9 +60,14 @@ void measure(char *data, char *pattern)
   }
 
   clock_gettime(CLOCK_MONOTONIC, &end);
-  elapsed = ((end.tv_sec - start.tv_sec) * 1E+9 + end.tv_nsec - start.tv_nsec) / 1E+6;
+  elapsed = ((end.tv_sec - start.tv_sec) * 1e9 + end.tv_nsec - start.tv_nsec) / 1e6;
 
   printf("%f - %d\n", elapsed, count);
+
+  pcre2_jit_stack_free(stack);
+  pcre2_match_context_free(match_ctx);
+  pcre2_match_data_free(match_data);
+  pcre2_code_free(re);
 }
 
 int main(int argc, char **argv)
