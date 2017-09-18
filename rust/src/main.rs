@@ -9,17 +9,14 @@ use std::fs::File;
 use time::precise_time_ns;
 
 fn measure(data: String, pattern: String) {
-    let mut count = 0;
     let start = precise_time_ns();
 
     let regex = Regex::new(&pattern).unwrap();
-    for captures in regex.captures_iter(&data) {
-        count += captures.len();
-    }
+    let count = regex.find_iter(&data).count();
 
     let elapse = precise_time_ns() - start;
 
-    println!("{} - {}", elapse as f64 / 1000000.0, count);
+    println!("{} - {}", elapse as f64 / 1e6, count);
 }
 
 fn main() {
