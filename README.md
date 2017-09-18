@@ -34,25 +34,41 @@ System: MacBook Pro (Retina, 15-inch, Late 2013), 2.3 GHz Intel Core i7, 16 GB 1
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-**Rust 1.20.0** | 28.53 | 28.46 | 6.25 | 63.24
-**PHP 7.1.7** | 52.62 | 49.86 | 5.40 | 107.89
-**Javascript - Node.js 7.7.3** | 73.99 | 61.30 | 1.85 | 137.14
-**Perl 5.26.0** | 238.71 | 165.46 | 44.26 | 448.42
-**Crystal 0.23.1** | 334.76 | 274.69 | 26.41 | 635.86
-**Ruby 2.4.1** | 331.64 | 292.05 | 52.25 | 675.94
-**Python - PyPy 5.8.0** | 201.93 | 171.11 | 319.39 | 692.43
-**Java 1.8.0** | 372.71 | 451.11 | 287.84 | 1111.67
-**Python 2.7.13** | 357.34 | 277.52 | 486.35 | 1121.21
-**Kotlin 1.1.4** | 385.41 | 461.78 | 289.76 | 1136.95
-**Python 3.6.2** | 542.00 | 401.42 | 470.92 | 1414.35
-**Go 1.8.3** | 407.80 | 401.74 | 695.69 | 1505.22
-**C - PCRE 2 10.30** | 220.65 | 1584.60 | 21.55 | 1826.80
-**C# - .Net Core 2.0.0** | 1898.46 | 1640.94 | 108.89 | 3648.28
-**C# - Mono 5.2.0** | 2365.17 | 1982.16 | 153.94 | 4501.28
+**C PCRE2** | 26.11 | 24.87 | 6.26 | 57.23
+**Rust** | 29.86 | 28.82 | 6.34 | 65.02
+**PHP** | 54.36 | 50.78 | 5.33 | 110.47
+**Javascript** | 74.49 | 62.35 | 1.86 | 138.71
+**Perl** | 244.88 | 169.18 | 44.61 | 458.67
+**Crystal** | 345.39 | 284.62 | 28.10 | 658.12
+**Ruby** | 348.34 | 304.18 | 54.15 | 706.68
+**Python PyPy** | 209.90 | 175.40 | 331.49 | 716.80
+**D** | 478.13 | 489.90 | 9.08 | 977.12
+**Java** | 382.92 | 450.79 | 294.18 | 1127.88
+**Python 2** | 366.78 | 285.84 | 507.35 | 1159.96
+**Kotlin** | 395.54 | 473.11 | 297.26 | 1165.91
+**Python 3** | 571.89 | 419.63 | 498.56 | 1490.08
+**Go** | 425.08 | 412.62 | 715.08 | 1552.77
+**C# .Net Core** | 1937.64 | 1679.95 | 112.29 | 3729.88
+**C# Mono** | 2442.07 | 2030.78 | 156.07 | 4628.92
 
-- **Language**: Indicates language and version.
+- **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for find and count non-overlapping occurrences for the pattern.
 - **Total(ms)**: Indicates the sum of the above times.
+
+# Versions and notes
+
+- **C**: Apple LLVM 8.1.0 (clang-802.0.42) with PCRE2 10.30 with JIT.
+- **Crystal**: crystal 0.23.1
+- **C#**: dotnet 2.0.0 | mono 5.2.0.215
+- **D**: dmd64 v2.076.0
+- **Go**: go 1.8.3
+- **Java**: java 1.8.0_131
+- **Javascript**: node v7.7.3
+- **Kotlin**: kotlinc 1.1.4
+- **Perl**: perl v5.26.0
+- **Python**: Python 2.7.13 | Python 3.6.2 | PyPy 5.8.0
+- **Ruby**: ruby 2.4.1p111
+- **Rust**: rustc 1.20.0
 
 # Contributing
 
