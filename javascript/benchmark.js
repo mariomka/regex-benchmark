@@ -12,7 +12,7 @@ function measure(data, pattern) {
 
   const end = process.hrtime(start);
   
-  console.log((end[0] * 1e9 + end[1]) / 1000000 + ' - ' + matches.length);
+  console.log((end[0] * 1e9 + end[1]) / 1e6 + ' - ' + matches.length);
 }
 
 const data = fs.readFileSync(process.argv[2], 'utf8')

@@ -43,6 +43,6 @@ class Benchmark
 
         long elapsed = System.nanoTime() - startTime;
 
-        System.out.println(elapsed / 1000000.0 + " - " + count);
+        System.out.println(elapsed / 1e6 + " - " + count);
     }
 }

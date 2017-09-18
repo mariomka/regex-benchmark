@@ -32,5 +32,5 @@ fun match(data: String, pattern: String) {
 
     val elapsed = System.nanoTime() - start
     
-    println((elapsed / 1000000.0).toString() + " - " + count)
+    println((elapsed / 1e6).toString() + " - " + count)
 }

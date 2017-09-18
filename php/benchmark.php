@@ -21,7 +21,7 @@ function measure($data, $pattern) {
 
     $count = preg_match_all($pattern, $data, $matches);
 
-    $elapsed = (microtime(true) - $startTime) * 1000;
+    $elapsed = (microtime(true) - $startTime) * 1e3;
 
     echo $elapsed . " - " . $count . PHP_EOL;
 }

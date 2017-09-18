@@ -14,7 +14,7 @@ def measure(data, pattern):
 
     elapsed_time = timer() - start_time
 
-    print(str(elapsed_time * 1000) + ' - ' + str(len(matches)))
+    print(str(elapsed_time * 1e3) + ' - ' + str(len(matches)))
 
 with open(sys.argv[1]) as file:
     data = file.read()

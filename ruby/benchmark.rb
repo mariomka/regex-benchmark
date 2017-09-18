@@ -11,7 +11,7 @@ def measure(data, pattern)
     count = data.scan(pattern).size
   }
 
-  puts "#{elapsed.real * 1000} - #{count}"
+  puts "#{elapsed.real * 1e3} - #{count}"
 end
 
 data = File.read(ARGV[0])
