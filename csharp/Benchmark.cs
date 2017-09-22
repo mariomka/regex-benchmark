@@ -12,7 +12,7 @@ class Benchmark
             Console.WriteLine("Usage: benchmark <filename>");
             Environment.Exit(1);
         }
-        
+
         StreamReader reader = new System.IO.StreamReader(args[0]);
         string data = reader.ReadToEnd();
 

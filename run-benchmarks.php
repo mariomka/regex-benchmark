@@ -9,7 +9,7 @@ const BUILDS = [
     'Crystal'      => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C# Mono'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
     'C# .Net Core' => 'dotnet build csharp/benchmark.csproj -c Release',
-    'D dmd'        => 'dmd -O -release -of=d/bin/benchmark d/benchmark.d',
+    'D dmd'        => 'dmd -O -release -inline -of=d/bin/benchmark d/benchmark.d',
     'D ldc'        => 'ldc2 -O3 -release -of=d/bin/benchmark-ldc d/benchmark.d',
     'Go'           => 'go build -ldflags "-s -w" -o go/bin/benchmark ./go',
     'Java'         => 'javac java/Benchmark.java',
@@ -20,7 +20,7 @@ const BUILDS = [
 const COMMANDS = [
     'C PCRE2'      => 'c/bin/benchmark',
     'Crystal'      => 'crystal/bin/benchmark',
-    'C# Mono'      => 'mono csharp/bin-mono/benchmark.exe',
+    'C# Mono'      => 'mono -O=all csharp/bin-mono/benchmark.exe',
     'C# .Net Core' => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
     'D dmd'        => 'd/bin/benchmark',
     'D ldc'        => 'd/bin/benchmark-ldc',

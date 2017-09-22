@@ -14,7 +14,7 @@ dotnet build -c Release
 
 ```sh
 # Mono
-mono bin-mono/benchmark.exe <filename>
+mono -O=all bin-mono/benchmark.exe <filename>
 
 # .Net Core
 dotnet bin/Release/netcoreapp2.0/benchmark.dll <filename>

@@ -11,7 +11,7 @@ import (
 
 func measure(data string, pattern string) {
     start := time.Now()
-    
+
     r, err := regexp.Compile(pattern)
     if err != nil {
         log.Fatal(err)
@@ -19,7 +19,7 @@ func measure(data string, pattern string) {
 
     matches := r.FindAllString(data, -1)
     count := len(matches)
-    
+
     elapsed := time.Since(start)
 
     fmt.Printf("%f - %v\n", float64(elapsed) / float64(time.Millisecond), count)
