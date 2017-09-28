@@ -67,6 +67,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **Javascript**: node v7.7.3
 - **Kotlin**: kotlinc 1.1.4
 - **Perl**: perl v5.26.0
+- **PHP**: PHP 7.1.7
 - **Python**: Python 2.7.13 | Python 3.6.2 | PyPy 5.8.0
 - **Ruby**: ruby 2.4.1p111
 - **Rust**: rustc 1.20.0
