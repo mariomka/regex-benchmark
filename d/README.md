@@ -4,7 +4,7 @@
 
 ```sh
 # DMD
-dmd -O -release benchmark.d
+dmd -O -release -inline benchmark.d
 
 # LDC
 ldc2 -O3 -release benchmark.d
