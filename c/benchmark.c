@@ -2,6 +2,10 @@
 #include <string.h>
 #include <sys/time.h>
 
+#if __has_include(<time.h>)
+#include <time.h>
+#endif
+
 #define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
 

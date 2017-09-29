@@ -3,7 +3,7 @@
 ## How to build
 
 ```sh
-gcc -O3 -DNDEBUG -I/usr/local/include/ -L/usr/local/lib -lpcre2-8 -o bin/benchmark benchmark.c
+gcc -O3 -DNDEBUG benchmark.c -I/usr/local/include/ -lpcre2-8 -o bin/benchmark 
 ```
 
 ## How to run
