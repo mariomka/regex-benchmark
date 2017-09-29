@@ -5,7 +5,7 @@ const PATTERNS_COUNT = 3;
 const RUN_TIMES = 10;
 
 const BUILDS = [
-    'C PCRE2'      => 'gcc -O3 -DNDEBUG -I/usr/local/include/ -L/usr/local/lib -lpcre2-8 -o c/bin/benchmark c/benchmark.c',
+    'C PCRE2'      => 'gcc -O3 -DNDEBUG c/benchmark.c -I/usr/local/include/ -lpcre2-8 -o c/bin/benchmark',
     'Crystal'      => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C# Mono'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
     'C# .Net Core' => 'dotnet build csharp/benchmark.csproj -c Release',
