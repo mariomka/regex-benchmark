@@ -4,7 +4,9 @@ It's just a simple regex benchmark for different programming languages.
 
 Measures how long it takes to find and count non-overlapping occurrences.
 
-Isn't a Holy Grail of the regex benchmarks. It can be helpful for choosing a language but it's not only about performance, each language has its engine and offers different features (like UTF support, backreferences, capturing groups...)
+> All benchmarks are wrong, but some are useful - [Szilard](https://github.com/szilard), [benchm-ml](https://github.com/szilard/benchm-ml)
+
+I hope this benchmark can be helpful for choosing a language but it's not only about performance, each language has its engine and offers different features (like UTF support, backreferences, capturing groups...)
 
 ## Input text
 
@@ -34,23 +36,23 @@ System: MacBook Pro (Retina, 15-inch, Late 2013), 2.3 GHz Intel Core i7, 16 GB 1
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-**C PCRE2** | 26.10 | 25.33 | 5.60 | 57.03
-**Rust** | 29.97 | 28.99 | 6.28 | 65.24
-**PHP** | 54.04 | 50.99 | 5.33 | 110.35
-**Javascript** | 74.07 | 63.12 | 1.92 | 139.10
-**D ldc** | 145.71 | 138.03 | 5.09 | 288.83
-**D dmd** | 202.59 | 200.88 | 5.46 | 408.92
-**Perl** | 247.17 | 169.66 | 44.81 | 461.64
-**Crystal** | 340.33 | 281.19 | 27.60 | 649.12
-**Ruby** | 344.97 | 299.62 | 53.90 | 698.49
-**Python PyPy** | 208.60 | 176.45 | 335.06 | 720.11
-**Java** | 383.98 | 456.78 | 297.50 | 1138.26
-**Python 2** | 369.52 | 287.59 | 506.10 | 1163.21
-**Kotlin** | 400.89 | 466.42 | 297.16 | 1164.47
-**Python 3** | 565.05 | 416.92 | 492.49 | 1474.46
-**Go** | 425.90 | 419.22 | 720.68 | 1565.81
-**C# .Net Core** | 1954.64 | 1691.29 | 110.97 | 3756.90
-**C# Mono** | 2445.52 | 2096.15 | 152.45 | 4694.12
+**C PCRE2** | 25.00 | 25.02 | 5.65 | 55.66
+**Rust** | 31.31 | 31.73 | 6.75 | 69.79
+**PHP** | 54.39 | 50.22 | 5.80 | 110.40
+**Javascript** | 74.88 | 63.09 | 2.02 | 140.00
+**D ldc** | 146.01 | 140.03 | 5.19 | 291.24
+**D dmd** | 205.52 | 200.30 | 5.59 | 411.41
+**Perl** | 246.91 | 170.74 | 45.60 | 463.24
+**Crystal** | 339.79 | 280.74 | 27.03 | 647.56
+**Python PyPy** | 207.96 | 177.18 | 329.85 | 714.99
+**Ruby** | 354.16 | 308.55 | 52.73 | 715.44
+**Java** | 382.57 | 456.34 | 297.66 | 1136.57
+**Kotlin** | 395.23 | 474.31 | 293.53 | 1163.07
+**Python 2** | 368.85 | 286.70 | 514.10 | 1169.65
+**Python 3** | 565.71 | 416.32 | 493.07 | 1475.09
+**Go** | 423.53 | 415.45 | 722.53 | 1561.51
+**C# .Net Core** | 1952.13 | 1681.00 | 111.32 | 3744.45
+**C# Mono** | 2463.84 | 2088.87 | 153.78 | 4706.49
 
 - **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for find and count non-overlapping occurrences for the pattern.
