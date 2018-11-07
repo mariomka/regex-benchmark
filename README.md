@@ -65,7 +65,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **C#**: dotnet 2.0.0 | mono 5.2.0.215
 - **D**: dmd64 v2.076.0 | ldc v1.3.0
 - **Go**: go 1.8.3
-- **Java**: java 1.8.0_131
+- **Java**: java 11 (Hotspot OpenJDK 11+28)
 - **Javascript**: node v7.7.3
 - **Kotlin**: kotlinc 1.1.4
 - **Perl**: perl v5.26.0
