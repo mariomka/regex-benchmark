@@ -63,8 +63,8 @@ RUN add-apt-repository ppa:longsleep/golang-backports && \
 
 ## Java - Open
 RUN apt-get install -yq --no-install-recommends \
-        openjdk-8-jre \
-        openjdk-8-jdk
+        openjdk-11-jre \
+        openjdk-11-jdk
 
 ## Javascript - Node
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \

@@ -66,7 +66,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **C#**: dotnet 3.0.100 | Mono 6.4.0.198 -- RegexOptions.ECMAScript mode
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Go**: go 1.13.4
-- **Java**: java 11 (Hotspot OpenJDK 11+28)
+- **Java**: OpenJDK 11.0.4
 - **Javascript**: node v13.1.0
 - **Kotlin**: kotlinc-jvm 1.3.50
 - **Perl**: perl v5.26.1
@@ -82,7 +82,7 @@ The easiest way to run the benchmark is by using Docker.
 ```sh
 git clone https://github.com/mariomka/regex-benchmark.git
 cd regex-benchmark
-docker run --rm -v $PWD:/var/regex mariomka/regex-benchmark:1.0
+docker run --rm -v $PWD:/var/regex mariomka/regex-benchmark:1.1
 ```
 
 # Contributing
