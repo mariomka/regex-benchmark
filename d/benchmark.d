@@ -2,6 +2,7 @@ import std.stdio;
 import std.file;
 import std.regex;
 import std.datetime;
+import std.datetime.stopwatch : StopWatch, AutoStart;
 import core.stdc.stdlib;
 
 void measure(string data, string pattern) {
@@ -14,7 +15,7 @@ void measure(string data, string pattern) {
     }
 
     sw.stop();
-    double end = sw.peek().nsecs / 1e6;
+    double end = sw.peek().total!"nsecs" / 1e6;
 
     printf("%f - %d\n", end, count);
 }
