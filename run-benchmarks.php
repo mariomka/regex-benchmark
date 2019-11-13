@@ -30,9 +30,10 @@ const COMMANDS = [
     'Kotlin'       => 'kotlin kotlin/benchmark.jar',
     'Perl'         => 'perl perl/benchmark.pl',
     'PHP'          => 'php php/benchmark.php',
-    'Python 2'     => 'python python/benchmark.py',
-    'Python 3'     => 'python3 python/benchmark.py',
-    'Python PyPy'  => 'pypy python/benchmark.py',
+    'Python 2'     => 'python2.7 python/benchmark.py',
+    'Python 3'     => 'python3.6 python/benchmark.py',
+    'Python PyPy2' => 'pypy2 python/benchmark.py',
+    'Python PyPy3' => 'pypy3 python/benchmark.py',
     'Ruby'         => 'ruby ruby/benchmark.rb',
     'Rust'         => 'rust/target/release/benchmark',
 ];

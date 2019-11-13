@@ -60,25 +60,37 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 
 ### Versions and notes
 
-- **C**: Apple LLVM 8.1.0 (clang-802.0.42) with PCRE2 10.30 with JIT.
-- **Crystal**: crystal 0.23.1
-- **C#**: dotnet 2.0.0 | mono 5.2.0.215
-- **D**: dmd64 v2.076.0 | ldc v1.3.0
-- **Go**: go 1.8.3
-- **Java**: java 1.8.0_131
-- **Javascript**: node v7.7.3
-- **Kotlin**: kotlinc 1.1.4
-- **Perl**: perl v5.26.0
-- **PHP**: PHP 7.1.7
-- **Python**: Python 2.7.13 | Python 3.6.2 | PyPy 5.8.0
-- **Ruby**: ruby 2.4.1p111
-- **Rust**: rustc 1.20.0
+- **C**: gcc 7.4.0 & PCRE2 10.31-2
+- **Crystal**: crystal 0.31.1 - LLVM: 8.0.0
+- **C#**: dotnet 3.0.100 | Mono 6.4.0.198
+- **D**: DMD v2.089.0 | LDC 1.8.0
+- **Go**: go 1.13.4
+- **Java**: Java 1.8.0_222 - OpenJDK
+- **Javascript**: node v13.1.0
+- **Kotlin**: kotlinc-jvm 1.3.50
+- **Perl**: perl v5.26.1
+- **PHP**: PHP 7.2.24
+- **Python**: Python 2.7.15+ | Python 3.6.8 | PyPy 7.2.0
+- **Ruby**: ruby 2.5.1p57
+- **Rust**: rustc 1.39.0
+
+# How to run
+
+The easiest way to run the benchmark is by using Docker.
+
+```sh
+git clone https://github.com/mariomka/regex-benchmark.git
+cd regex-benchmark
+docker run --rm -v $PWD:/var/regex mariomka/regex-benchmark:1.0
+```
 
 # Contributing
 
-All contributions are welcome, from the tiny optimizations to new implementations.
+All contributions are welcome, from tiny optimizations to new implementations.
 
-The requirement is following the current implementations style.
+There are only two requirements:
+- Follow the style of the current implementations
+- Update `Dockerfile` if it's necessary
 
 # Kudos
 
