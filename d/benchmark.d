@@ -4,12 +4,12 @@ import std.regex;
 import std.datetime;
 import core.stdc.stdlib;
 
-void measure(string data, StaticRegex!char pattern) {
+void measure(string data, string pattern) {
     int count = 0;
 
     auto sw = StopWatch(AutoStart.yes);
 
-    foreach (m; data.matchAll(pattern)) {
+    foreach (m; data.matchAll(regex(pattern))) {
         count++;
     }
 
@@ -28,11 +28,11 @@ void main(string [] args) {
     string data = readText(args[1]);
 
     // Email
-    measure(data, ctRegex!(r"[\w\.+-]+@[\w\\.-]+\.[\w\.-]+"));
+    measure(data, r"[\w\.+-]+@[\w\\.-]+\.[\w\.-]+");
 
     // URI
-    measure(data, ctRegex!(r"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?"));
+    measure(data, r"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?");
 
     // IP
-    measure(data, ctRegex!(r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])"));
+    measure(data, r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
 }
