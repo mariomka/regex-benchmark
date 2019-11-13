@@ -1,6 +1,6 @@
 <?php
 
-if (count($argv) != 2) {
+if (count($argv) !== 2) {
     echo 'Usage: php benchmark.php <filename>';
     die(1);
 }
@@ -23,5 +23,5 @@ function measure($data, $pattern) {
 
     $elapsed = (microtime(true) - $startTime) * 1e3;
 
-    echo $elapsed . " - " . $count . PHP_EOL;
+    echo $elapsed . ' - ' . $count . PHP_EOL;
 }

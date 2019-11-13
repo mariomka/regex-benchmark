@@ -52,30 +52,30 @@ $results = [];
 
 foreach (COMMANDS as $language => $command) {
     echo $language . ' running.';
+
     $currentResults = [];
 
     for ($i = 0; $i < RUN_TIMES; $i++) {
         $out = shell_exec($command . ' input-text.txt');
         preg_match_all('/^\d+\.\d+/m', $out, $matches);
 
-	if (sizeof($matches[0]) == 0)
-	{
-	    break;
+        if (sizeof($matches[0]) === 0) {
+            break;
         }
 
         for ($j = 0; $j < PATTERNS_COUNT; $j++) {
             $currentResults[$j][] = $matches[0][$j];
-	}
-	echo '.';
+        }
+
+        echo '.';
     }
 
-    if (sizeof($currentResults) != 0)
-    {
-	    for ($i = 0; $i < PATTERNS_COUNT; $i++) {
-		$results[$language][] = array_sum($currentResults[$i]) / count($currentResults[$i]);
-	    }
+    if (sizeof($currentResults) !== 0) {
+        for ($i = 0; $i < PATTERNS_COUNT; $i++) {
+            $results[$language][] = array_sum($currentResults[$i]) / count($currentResults[$i]);
+        }
 
-	    $results[$language][PATTERNS_COUNT] = array_sum($results[$language]);
+        $results[$language][PATTERNS_COUNT] = array_sum($results[$language]);
     }
 
     echo $language . ' ran.' . PHP_EOL;
