@@ -66,7 +66,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **C#**: dotnet 3.0.100 | Mono 6.4.0.198 -- RegexOptions.ECMAScript mode
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Go**: go 1.13.4
-- **Java**: Java 1.8.0_222 - OpenJDK
+- **Java**: java 11 (Hotspot OpenJDK 11+28)
 - **Javascript**: node v13.1.0
 - **Kotlin**: kotlinc-jvm 1.3.50
 - **Perl**: perl v5.26.1

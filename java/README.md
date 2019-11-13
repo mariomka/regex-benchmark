@@ -11,4 +11,3 @@ javac Benchmark.java
 ```sh
 java Benchmark <filename>
 ```
-
