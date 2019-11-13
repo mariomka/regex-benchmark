@@ -30,7 +30,7 @@ class Benchmark
     {
         Stopwatch stopwatch = Stopwatch.StartNew();
 
-        MatchCollection matches = Regex.Matches(data, pattern, RegexOptions.Compiled | RegexOptions.ECMAScript);
+        MatchCollection matches = Regex.Matches(data, pattern, RegexOptions.Compiled);
         int count = matches.Count;
 
         stopwatch.Stop();
