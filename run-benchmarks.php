@@ -12,7 +12,7 @@ const BUILDS = [
     'D dmd'        => 'dmd -O -release -inline -of=d/bin/benchmark d/benchmark.d',
     'D ldc'        => 'ldc2 -O3 -release -of=d/bin/benchmark-ldc d/benchmark.d',
     'Go'           => 'go build -ldflags "-s -w" -o go/bin/benchmark ./go',
-    'Java'         => 'javac java/benchmark.java',
+    'Java'         => 'javac java/Benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
