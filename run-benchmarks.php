@@ -21,7 +21,7 @@ const COMMANDS = [
     'C PCRE2'      => 'c/bin/benchmark',
     'Crystal'      => 'crystal/bin/benchmark',
     'C# Mono'      => 'mono -O=all csharp/bin-mono/benchmark.exe',
-    'C# .Net Core' => 'dotnet csharp/bin/Release/netcoreapp2.0/benchmark.dll',
+    'C# .Net Core' => 'dotnet csharp/bin/Release/netcoreapp3.0/benchmark.dll',
     'D dmd'        => 'd/bin/benchmark',
     'D ldc'        => 'd/bin/benchmark-ldc',
     'Go'           => 'go/bin/benchmark',
