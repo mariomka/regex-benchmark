@@ -7,12 +7,12 @@ const RUN_TIMES = 10;
 const BUILDS = [
     'C PCRE2'      => 'gcc -O3 -DNDEBUG c/benchmark.c -I/usr/local/include/ -lpcre2-8 -o c/bin/benchmark',
     'Crystal'      => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
-    'C# Mono'      => 'mcs csharp/benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
+    'C# Mono'      => 'mcs csharp/Benchmark.cs -out:csharp/bin-mono/benchmark.exe -debug- -optimize',
     'C# .Net Core' => 'dotnet build csharp/benchmark.csproj -c Release',
     'D dmd'        => 'dmd -O -release -inline -of=d/bin/benchmark d/benchmark.d',
     'D ldc'        => 'ldc2 -O3 -release -of=d/bin/benchmark-ldc d/benchmark.d',
     'Go'           => 'go build -ldflags "-s -w" -o go/bin/benchmark ./go',
-    'Java'         => 'javac java/Benchmark.java',
+    'Java'         => 'javac java/benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
