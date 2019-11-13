@@ -10,10 +10,11 @@ function measure(data, pattern) {
 
   const regex = new RegExp(pattern, 'g')
   const matches = data.match(regex)
+  const count = matches.length
 
-  const end = process.hrtime(start);
-  
-  console.log((end[0] * 1e9 + end[1]) / 1e6 + ' - ' + matches.length);
+  const end = process.hrtime(start)
+
+  console.log((end[0] * 1e9 + end[1]) / 1e6 + ' - ' + count)
 }
 
 const data = fs.readFileSync(process.argv[2], 'utf8')
