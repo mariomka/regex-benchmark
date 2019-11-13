@@ -18,7 +18,7 @@ if (@ARGV != 1) {
 
 my ($filename) = @ARGV;
 
-open my $fh, '<:encoding(UTF-8)', $filename or die 'Could not open file.';
+open my $fh, '<', $filename or die 'Could not open file.';
 my $text;
 read $fh, $data, -s $filename;
 close $fh;
