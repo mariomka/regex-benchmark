@@ -22,7 +22,12 @@ char *read_file(char *filename)
 
   data = malloc(length);
 
-  fread(data, length, 1, fh);
+  size_t result = fread(data, length, 1, fh);
+  if (result != 1)
+  {
+	fputs("err", stderr);
+	exit(1);
+  }
   fclose(fh);
 
   return data;
