@@ -9,5 +9,5 @@ javac Benchmark.java
 ## How to run
 
 ```sh
-java Benchmark <filename>
+java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -classpath java Benchmark <filename>
 ```
