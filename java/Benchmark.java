@@ -5,12 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class Benchmark {
-
-    private static final String PATTERN_EMAIL = "[\\w.+-]+@[\\w.-]+\\.[\\w.-]+";
-    private static final String PATTERN_URI = "[\\w]+://[^/\\s?#]+[^\\s?#]+(?:\\?[^\\s#]*)?(?:#[^\\s]*)?";
-    private static final String PATTERN_IP = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\\.){3}" +
-                                             "(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])";
-
     public static void main(String... args) throws IOException {
         if (args.length != 1) {
             System.out.println("Usage: java Benchmark <filename>");
@@ -19,9 +13,9 @@ public final class Benchmark {
 
         final String data = Files.readString(Paths.get(args[0]));
 
-        measure(data, PATTERN_EMAIL);
-        measure(data, PATTERN_URI);
-        measure(data, PATTERN_IP);
+        measure(data, "[\\w.+-]+@[\\w.-]+\\.[\\w.-]+");
+        measure(data, "[\\w]+://[^/\\s?#]+[^\\s?#]+(?:\\?[^\\s#]*)?(?:#[^\\s]*)?");
+        measure(data, "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
     }
 
     private static void measure(String data, String pattern) {
