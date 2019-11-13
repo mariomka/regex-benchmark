@@ -32,27 +32,28 @@ Elapsed time include pattern compilation, find and count occurrences.
 
 ## Performance
 
-System: MacBook Pro (Retina, 15-inch, Late 2013), 2.3 GHz Intel Core i7, 16 GB 1600 Mhz DDR3 with macOS Sierra 10.12.5.
+Docker image was run on: MacBook Pro (Retina, 15-inch, 2017), 2.8 GHz Intel Core i7, 16 GB 1600 Mhz DDR3 with macOS Sierra 10.13.6.
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-**C PCRE2** | 25.00 | 25.02 | 5.65 | 55.66
-**Rust** | 31.31 | 31.73 | 6.75 | 69.79
-**PHP** | 54.39 | 50.22 | 5.80 | 110.40
-**Javascript** | 74.88 | 63.09 | 2.02 | 140.00
-**D ldc** | 146.01 | 140.03 | 5.19 | 291.24
-**D dmd** | 205.52 | 200.30 | 5.59 | 411.41
-**Perl** | 246.91 | 170.74 | 45.60 | 463.24
-**Crystal** | 339.79 | 280.74 | 27.03 | 647.56
-**Python PyPy** | 207.96 | 177.18 | 329.85 | 714.99
-**Ruby** | 354.16 | 308.55 | 52.73 | 715.44
-**Java** | 382.57 | 456.34 | 297.66 | 1136.57
-**Kotlin** | 395.23 | 474.31 | 293.53 | 1163.07
-**Python 2** | 368.85 | 286.70 | 514.10 | 1169.65
-**Python 3** | 565.71 | 416.32 | 493.07 | 1475.09
-**Go** | 423.53 | 415.45 | 722.53 | 1561.51
-**C# .Net Core** | 1952.13 | 1681.00 | 111.32 | 3744.45
-**C# Mono** | 2463.84 | 2088.87 | 153.78 | 4706.49
+**PHP** | 24.78 | 25.46 | 6.49 | 56.72
+**C PCRE2** | 26.51 | 27.65 | 7.77 | 61.92
+**Rust** | 26.67 | 28.71 | 7.19 | 62.57
+**Javascript** | 74.72 | 59.79 | 1.78 | 136.30
+**Perl** | 111.00 | 76.89 | 23.50 | 211.39
+**Crystal** | 155.25 | 127.69 | 15.95 | 298.90
+**D ldc** | 155.59 | 151.01 | 5.28 | 311.88
+**D dmd** | 236.94 | 223.38 | 5.52 | 465.83
+**Ruby** | 309.53 | 271.57 | 59.56 | 640.65
+**Python 2** | 240.52 | 169.07 | 392.58 | 802.18
+**Python PyPy2** | 211.36 | 210.30 | 385.73 | 807.39
+**Python 3** | 325.13 | 242.23 | 400.85 | 968.22
+**Python PyPy3** | 333.20 | 301.28 | 359.45 | 993.92
+**Kotlin** | 400.57 | 428.61 | 271.39 | 1100.57
+**Go** | 315.93 | 316.68 | 485.22 | 1117.82
+**Java** | 431.63 | 499.97 | 295.35 | 1226.95
+**C# .Net Core** | 694.35 | 572.88 | 92.63 | 1359.85
+**C# Mono** | 1953.85 | 1581.50 | 184.76 | 3720.11
 
 - **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for find and count non-overlapping occurrences for the pattern.
@@ -62,7 +63,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 
 - **C**: gcc 7.4.0 & PCRE2 10.31-2
 - **Crystal**: crystal 0.31.1 - LLVM: 8.0.0
-- **C#**: dotnet 3.0.100 | Mono 6.4.0.198
+- **C#**: dotnet 3.0.100 | Mono 6.4.0.198 -- RegexOptions.ECMAScript mode
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Go**: go 1.13.4
 - **Java**: Java 1.8.0_222 - OpenJDK
