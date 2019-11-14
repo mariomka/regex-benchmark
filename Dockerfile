@@ -47,13 +47,21 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsof
     apt-get install -yq --no-install-recommends \
         dotnet-sdk-3.0
 
-## DLang - DMD
+## D - DMD
 RUN wget -q http://downloads.dlang.org/releases/2.x/2.089.0/dmd_2.089.0-0_amd64.deb -O dmd_2.089.0-0_amd64.deb && \
     dpkg -i --ignore-depends=libcurl3 dmd_2.089.0-0_amd64.deb
 
-## DLang - LDC
+## D - LDC
 RUN apt-get install -yq --no-install-recommends \
         ldc
+
+## Dart
+RUN sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' && \
+    sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' && \
+    apt-get update && \
+    apt-get install -yq --no-install-recommends \
+        dart && \
+    ln -s /usr/lib/dart/bin/dart2native  /usr/local/bin/dart2native
 
 ## Go
 RUN add-apt-repository ppa:longsleep/golang-backports && \
