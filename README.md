@@ -36,24 +36,25 @@ Docker image was run on: MacBook Pro (Retina, 15-inch, 2017), 2.8 GHz Intel Core
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-**PHP** | 22.97 | 23.34 | 6.14 | 52.45
-**C PCRE2** | 24.01 | 24.24 | 7.02 | 55.27
-**Rust** | 24.48 | 26.42 | 6.60 | 57.50
-**Javascript** | 68.77 | 54.94 | 1.71 | 125.42
-**Perl** | 105.08 | 72.21 | 22.53 | 199.82
-**Crystal** | 141.09 | 121.37 | 15.20 | 277.66
-**D ldc** | 144.86 | 142.31 | 4.67 | 291.84
-**D dmd** | 221.55 | 206.43 | 5.09 | 433.07
-**Ruby** | 286.18 | 252.30 | 55.56 | 594.03
-**Python PyPy2** | 188.12 | 172.02 | 333.74 | 693.88
-**Python 2** | 223.88 | 157.69 | 365.21 | 746.78
-**Java** | 204.76 | 261.09 | 314.96 | 780.81
-**Kotlin** | 217.14 | 245.99 | 329.70 | 792.83
-**Python 3** | 319.95 | 233.07 | 387.41 | 940.44
-**Python PyPy3** | 321.83 | 290.43 | 361.08 | 973.34
-**Go** | 301.00 | 300.37 | 455.19 | 1056.56
-**C# .Net Core** | 1238.26 | 1035.53 | 89.71 | 2363.50
-**C# Mono** | 3089.06 | 2631.22 | 182.76 | 5903.04
+**PHP** | 22.99 | 23.47 | 6.28 | 52.74
+**C PCRE2** | 24.61 | 24.64 | 6.88 | 56.13
+**Rust** | 24.75 | 27.54 | 6.62 | 58.92
+**Javascript** | 68.30 | 54.74 | 1.75 | 124.80
+**Perl** | 103.39 | 71.81 | 22.88 | 198.07
+**Crystal** | 142.48 | 123.13 | 15.74 | 281.35
+**D ldc** | 205.65 | 205.57 | 5.88 | 417.11
+**D dmd** | 233.14 | 236.44 | 6.74 | 476.33
+**Ruby** | 283.77 | 250.48 | 55.14 | 589.39
+**Python PyPy2** | 179.98 | 171.88 | 334.90 | 686.76
+**Python 2** | 226.40 | 154.39 | 368.31 | 749.10
+**Kotlin** | 212.87 | 230.06 | 321.01 | 763.94
+**Java** | 203.57 | 247.48 | 316.80 | 767.85
+**Python 3** | 317.25 | 237.16 | 390.30 | 944.71
+**Go** | 296.17 | 296.38 | 452.80 | 1045.35
+**Python PyPy3** | 344.45 | 308.61 | 409.94 | 1063.00
+**C++** | 437.43 | 376.83 | 319.47 | 1133.72
+**C# .Net Core** | 1211.23 | 1006.61 | 86.48 | 2304.31
+**C# Mono** | 2961.09 | 2489.78 | 171.24 | 5622.11
 
 - **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for find and count non-overlapping occurrences for the pattern.
@@ -82,7 +83,7 @@ The easiest way to run the benchmark is by using Docker.
 ```sh
 git clone https://github.com/mariomka/regex-benchmark.git
 cd regex-benchmark
-docker run --rm -v $PWD:/var/regex mariomka/regex-benchmark:1.1
+docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.1 
 ```
 
 # Contributing
