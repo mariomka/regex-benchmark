@@ -2,15 +2,16 @@
 #include <fstream>
 #include <iostream>
 #include <regex>
+#include <boost/regex.hpp>
 
 void measure(const std::string& data, const std::string& pattern) {
   using clock = std::chrono::high_resolution_clock;
   const auto start = clock::now();
 
-  const std::regex re{pattern};
+  const REGEX_NAMESPACE::regex re{pattern};
   unsigned count = 0;
 
-  for (std::sregex_token_iterator it{data.cbegin(), data.cend(), re}, end{}; it != end; ++it)
+  for (REGEX_NAMESPACE::sregex_token_iterator it{data.cbegin(), data.cend(), re}, end{}; it != end; ++it)
     count++;
 
   const auto end = clock::now();

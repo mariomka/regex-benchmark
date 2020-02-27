@@ -66,7 +66,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 
 - **C**: gcc 7.4.0 & PCRE2 10.31-2
 - **Crystal**: crystal 0.31.1 - LLVM: 8.0.0
-- **C++**: g++ 7.4.0 
+- **C++**: g++ 7.4.0 | Boost 1.65.0
 - **C#**: dotnet 3.0.100 | Mono 6.4.0.198
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Dart**: Dart 2.6.1
