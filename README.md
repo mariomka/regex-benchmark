@@ -87,7 +87,7 @@ The easiest way to run the benchmark is by using Docker.
 ```sh
 git clone https://github.com/mariomka/regex-benchmark.git
 cd regex-benchmark
-docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.2 
+docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.3
 ```
 
 # Contributing
