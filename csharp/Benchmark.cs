@@ -28,9 +28,11 @@ class Benchmark
 
     static void Measure(string data, string pattern)
     {
+        Regex regex = new Regex(pattern, RegexOptions.Compiled);
+
         Stopwatch stopwatch = Stopwatch.StartNew();
 
-        MatchCollection matches = Regex.Matches(data, pattern, RegexOptions.Compiled);
+        MatchCollection matches = regex.Matches(data);
         int count = matches.Count;
 
         stopwatch.Stop();
