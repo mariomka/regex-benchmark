@@ -1,41 +1,45 @@
-extern crate time;
 extern crate regex;
 
 use std::env;
 use std::process;
-use regex::Regex;
 use std::io::Read;
 use std::fs::File;
-use time::precise_time_ns;
+use std::time::Instant;
 
-fn measure(data: String, pattern: String) {
-    let start = precise_time_ns();
+use regex::bytes::Regex;
+
+fn measure(data: &Vec<u8>, pattern: String) {
+
+    let start = Instant::now();
 
     let regex = Regex::new(&pattern).unwrap();
+
     let count = regex.find_iter(&data).count();
 
-    let elapse = precise_time_ns() - start;
+    let elapse = start.elapsed().as_millis();
 
-    println!("{} - {}", elapse as f64 / 1e6, count);
+    println!("{} - {}", elapse, count);
 }
 
 fn main() {
+    
     if env::args().len() != 2 {
         println!("Usage: benchmark <filename>");
         process::exit(1);
     }
 
     let mut file = File::open(env::args().nth(1).unwrap()).unwrap();
-    let mut data = String::new();
 
-    file.read_to_string(&mut data).unwrap();
+    let mut data = Vec::<u8>::new();
+
+    file.read_to_end(&mut data).unwrap();
 
     // Email
-    measure(data.clone(), r"[\w\.+-]+@[\w\.-]+\.[\w\.-]+".to_string());
+    measure(&data, r"(?-u)[\w\.+-]+@[\w\.-]+\.[\w\.-]+".to_string());
 
     // URI
-    measure(data.clone(), r"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?".to_string());
+    measure(&data, r"(?-u)[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?".to_string());
 
     // IP
-    measure(data.clone(), r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])".to_string());
+    measure(&data, r"(?-u)(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])".to_string());
 }

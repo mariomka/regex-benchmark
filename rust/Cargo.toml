@@ -1,8 +1,9 @@
 [package]
 name = "benchmark"
 version = "1.0.0"
-authors = ["Mario Juarez <mario@mjp.one>"]
+authors = ["Mario Juarez <mario@mjp.one>", "Soheil Alizadeh <xsoheilalizadeh@gmail.com>"]
 
-[dependencies]
-regex = "0.2"
-time = "0.1"
+
+[dependencies.regex]
+version = "1.3"
+features = ["std"]
