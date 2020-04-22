@@ -90,6 +90,10 @@ RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v1.3.50/kotlin
     ln -s /opt/kotlinc/bin/kotlin /usr/local/bin/kotlin && \
     ln -s /opt/kotlinc/bin/kotlinc /usr/local/bin/kotlinc
 
+## Nim
+RUN curl https://nim-lang.org/choosenim/init.sh -sSf | sh -s -- -y && \
+    ln -s /root/.nimble/bin/nim /usr/local/bin/nim
+
 ## PHP
 RUN apt-get install -yq --no-install-recommends \
         php7.2-cli
