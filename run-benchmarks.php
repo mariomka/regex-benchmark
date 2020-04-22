@@ -17,6 +17,7 @@ const BUILDS = [
     'Go'           => 'go build -ldflags "-s -w" -o go/bin/benchmark ./go',
     'Java'         => 'javac java/Benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
+    'Nim'          => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark nim/benchmark.nim ',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
 
@@ -35,6 +36,7 @@ const COMMANDS = [
     'Java'         => 'java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -classpath java Benchmark',
     'Javascript'   => 'node javascript/benchmark.js',
     'Kotlin'       => 'kotlin kotlin/benchmark.jar',
+    'Nim'          => 'nim/bin/benchmark',
     'Perl'         => 'perl perl/benchmark.pl',
     'PHP'          => 'php php/benchmark.php',
     'Python 2'     => 'python2.7 python/benchmark.py',
