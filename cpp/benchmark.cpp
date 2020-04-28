@@ -3,6 +3,7 @@
 #include <iostream>
 #include <regex>
 #include <boost/regex.hpp>
+#include <srell.hpp>
 
 void measure(const std::string& data, const std::string& pattern) {
   using clock = std::chrono::high_resolution_clock;
