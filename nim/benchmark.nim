@@ -11,8 +11,9 @@ proc measure(data:string, pattern:string) =
   let time = cpuTime()
   let r_pattern = re(pattern)
   let matches: seq[string] = data.findAll(r_pattern)
+  let count = len(matches)
   let elapsed_time = cpuTime() - time 
-  echo &"{elapsed_time * 1e3} - {len(matches)}"
+  echo &"{elapsed_time * 1e3} - {count}"
 
 let data = readFile(paramStr(1))
 
