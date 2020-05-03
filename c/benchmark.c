@@ -50,7 +50,7 @@ void measure(char *data, char *pattern)
 
   clock_gettime(CLOCK_MONOTONIC, &start);
 
-  re = pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED, PCRE2_UTF, &errorcode, &erroroffset, NULL);
+  re = pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL);
 
   match_ctx = pcre2_match_context_create(NULL);
   pcre2_jit_compile(re, PCRE2_JIT_COMPLETE);

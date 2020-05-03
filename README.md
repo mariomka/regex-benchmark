@@ -2,11 +2,11 @@
 
 It's just a simple regex benchmark for different programming languages.
 
-Measures how long it takes to find and count non-overlapping occurrences.
+Measures how long it takes to find and count non-overlapping occurrences with **default settings**.
 
 > All benchmarks are wrong, but some are useful - [Szilard](https://github.com/szilard), [benchm-ml](https://github.com/szilard/benchm-ml)
 
-I hope this benchmark can be helpful for choosing a language but it's not only about performance, each language has its engine and offers different features (like UTF support, backreferences, capturing groups...)
+I hope this benchmark can be helpful, but it's not only about performance, but each language also has its engine and offers different features (like UTF support, backreferences, capturing groups ...)
 
 ## Input text
 
@@ -94,8 +94,9 @@ docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.3
 
 All contributions are welcome, from tiny optimizations to new implementations.
 
-There are only two requirements:
+There are only a few requirements:
 - Follow the style of the current implementations
+- Use the default settings for the regex engine
 - Update `Dockerfile` if it's necessary
 
 # Kudos
