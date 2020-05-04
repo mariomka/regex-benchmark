@@ -38,7 +38,8 @@ Docker image was run on: MacBook Pro (Retina, 15-inch, 2017), 2.8 GHz Intel Core
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-- | - | - | - | -
+| - | - | - | - | -
+
 
 - **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for finding and counting non-overlapping occurrences for the pattern.
