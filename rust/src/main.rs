@@ -5,7 +5,7 @@ use regex::bytes::RegexBuilder;
 fn measure(data: &str, pattern: &str) {
     let start = Instant::now();
 
-    let regex = RegexBuilder::new(pattern).build().unwrap();
+    let regex = RegexBuilder::new(pattern).unicode(false).build().unwrap();
     let count = regex.find_iter(data.as_bytes()).count();
 
     let elapsed = Instant::now().duration_since(start);
