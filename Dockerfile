@@ -49,7 +49,7 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsof
     dpkg -i packages-microsoft-prod.deb && \
     apt-get update && \
     apt-get install -yq --no-install-recommends \
-        dotnet-sdk-3.0
+        dotnet-sdk-3.1
 
 ## D - DMD
 RUN wget -q http://downloads.dlang.org/releases/2.x/2.089.0/dmd_2.089.0-0_amd64.deb -O dmd_2.089.0-0_amd64.deb && \
