@@ -41,6 +41,8 @@ void measure(char *data, char *pattern)
   pcre2_code *re;
   int errorcode;
   PCRE2_SIZE erroroffset;
+  pcre2_match_context *match_ctx;
+  pcre2_jit_stack *stack;
   pcre2_match_data *match_data;
   int length;
   PCRE2_SIZE offset = 0;
@@ -49,10 +51,16 @@ void measure(char *data, char *pattern)
   clock_gettime(CLOCK_MONOTONIC, &start);
 
   re = pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL);
-  match_data = pcre2_match_data_create_from_pattern(re, NULL);
+
+  match_ctx = pcre2_match_context_create(NULL);
+  pcre2_jit_compile(re, PCRE2_JIT_COMPLETE);
+  stack = pcre2_jit_stack_create(0, 16384, NULL);
+  pcre2_jit_stack_assign(match_ctx, NULL, stack);
+
+  match_data = pcre2_match_data_create(1, NULL);
   length = strlen(data);
 
-  while (pcre2_match(re, (PCRE2_SPTR8) data, length, offset, 0, match_data, NULL) == 1)
+  while (pcre2_jit_match(re, (PCRE2_SPTR8) data, length, offset, 0, match_data, match_ctx) == 1)
   {
     count++;
 
@@ -65,6 +73,8 @@ void measure(char *data, char *pattern)
 
   printf("%f - %d\n", elapsed, count);
 
+  pcre2_jit_stack_free(stack);
+  pcre2_match_context_free(match_ctx);
   pcre2_match_data_free(match_data);
   pcre2_code_free(re);
 }
