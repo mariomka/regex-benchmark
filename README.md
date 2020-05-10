@@ -1,4 +1,4 @@
-# WIP: Languages Regex Benchmark (Optimized)
+# Languages Regex Benchmark (Optimized)
 
 > This is an **optimized** version of the benchmark. It allows code and settings optimizations but keeping the measure, code style/structure and regex patterns.
 
@@ -34,11 +34,35 @@ Elapsed time include pattern compilation, find and count occurrences.
 
 ## Performance
 
+> The following results are for the optimized version. [Go to default version](https://github.com/mariomka/regex-benchmark/tree/master).
+
 Docker image was run on: MacBook Pro (Retina, 15-inch, 2017), 2.8 GHz Intel Core i7, 16 GB 1600 Mhz DDR3 with macOS Catalina 10.15.3.
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-| - | - | - | - | -
+**Rust** | 16.82 | 16.50 | 7.03 | 40.34
+**C PCRE2** | 31.50 | 27.39 | 6.39 | 65.28
+**PHP** | 30.25 | 28.78 | 9.36 | 68.39
+**Nim** | 30.45 | 29.80 | 10.31 | 70.57
+**Javascript** | 83.18 | 67.87 | 2.12 | 153.16
+**C++ Boost** | 93.85 | 94.29 | 31.70 | 219.84
+**Perl** | 125.67 | 88.64 | 59.73 | 274.03
+**Dart** | 160.64 | 157.93 | 153.12 | 471.69
+**Crystal** | 319.36 | 283.66 | 24.57 | 627.59
+**D dmd** | 399.17 | 408.93 | 9.78 | 817.87
+**Python PyPy2** | 228.29 | 213.32 | 398.03 | 839.64
+**Ruby** | 434.12 | 384.80 | 71.18 | 890.10
+**D ldc** | 459.53 | 468.51 | 9.60 | 937.64
+**Python PyPy3** | 373.30 | 337.43 | 385.02 | 1095.75
+**Go** | 347.30 | 357.23 | 531.23 | 1235.76
+**Kotlin** | 287.22 | 324.44 | 768.30 | 1379.96
+**Java** | 302.91 | 334.33 | 742.75 | 1380.00
+**Python 2** | 1000.39 | 340.19 | 1237.43 | 2578.01
+**C++ STL** | 910.44 | 787.49 | 1077.83 | 2775.76
+**Python 3** | 1161.25 | 405.61 | 1247.74 | 2814.60
+**C# .Net Core** | 2409.07 | 2065.53 | 147.49 | 4622.09
+**C# Mono** | 2452.05 | 2040.25 | 221.21 | 4713.50
+**Dart Native** | 2196.88 | 2489.73 | 40.45 | 4727.06
 
 
 - **Language**: Indicates the language.
@@ -50,7 +74,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **C**: gcc 7.5.0 & PCRE2 10.31-2
 - **Crystal**: crystal 0.34.0 - LLVM: 8.0.0
 - **C++**: g++ 7.5.0 | Boost 1.65.1.0
-- **C#**: dotnet 3.0.103 | Mono 6.8.0.105
+- **C#**: dotnet 3.1.201 | Mono 6.8.0.105
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Dart**: Dart 2.7.2
 - **Go**: go 1.14.2
