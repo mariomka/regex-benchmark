@@ -10,7 +10,7 @@
 #include <unicode/ustring.h>
 
 
-void measure(const std::string& data, const std::string& pattern) {
+void measure(const icu::UnicodeString& data_uc, const std::string& pattern) {
   using clock = std::chrono::high_resolution_clock;
   const auto start = clock::now();
 
@@ -20,7 +20,6 @@ void measure(const std::string& data, const std::string& pattern) {
     throw std::runtime_error("something went wrong :(");
   }
   unsigned count = 0;
-  icu::UnicodeString data_uc(data.c_str());
   matcher.reset(data_uc);
   while (matcher.find(status) && U_SUCCESS(status)) {
     count++;
@@ -44,15 +43,16 @@ int main(int argc, char** argv) {
   }
 
   const std::string data{std::istreambuf_iterator<char>{file}, std::istreambuf_iterator<char>{}};
+  icu::UnicodeString data_uc(data.c_str());
 
   // Email
-  measure(data, "[\\w.+-]+@[\\w.-]+\\.[\\w.-]+");
+  measure(data_uc, "[\\w.+-]+@[\\w.-]+\\.[\\w.-]+");
 
   // URI
-  measure(data, "[\\w]+:\\/\\/[^\\/\\s?#]+[^\\s?#]+(?:\\?[^\\s#]*)?(?:#[^\\s]*)?");
+  measure(data_uc, "[\\w]+:\\/\\/[^\\/\\s?#]+[^\\s?#]+(?:\\?[^\\s#]*)?(?:#[^\\s]*)?");
 
   // IP
-  measure(data, "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
+  measure(data_uc, "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
 
   return 0;
 }
