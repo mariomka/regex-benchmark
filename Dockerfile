@@ -14,7 +14,8 @@ RUN apt-get update && \
         software-properties-common \
         tzdata \
         unzip \
-        wget
+        wget \
+        git
 
 # Set the locale and timezone
 RUN locale-gen en_US.UTF-8 && \
@@ -92,7 +93,8 @@ RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v1.3.50/kotlin
 
 ## Nim
 RUN curl https://nim-lang.org/choosenim/init.sh -sSf | sh -s -- -y && \
-    ln -s /root/.nimble/bin/nim /usr/local/bin/nim
+    ln -s /root/.nimble/bin/nim /usr/local/bin/nim && \
+    ln -s /root/.nimble/bin/nimble /usr/local/bin/nimble
 
 ## PHP
 RUN apt-get install -yq --no-install-recommends \
