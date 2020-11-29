@@ -31,10 +31,9 @@ class Benchmark
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         MatchCollection matches = Regex.Matches(data, pattern);
-        int count = matches.Count;
 
         stopwatch.Stop();
 
-        Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds.ToString("G", System.Globalization.CultureInfo.InvariantCulture) + " - " + count);
+        Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds.ToString("G", System.Globalization.CultureInfo.InvariantCulture) + " - " + matches.Count);
     }
 }
