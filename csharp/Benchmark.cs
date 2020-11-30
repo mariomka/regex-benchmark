@@ -34,7 +34,7 @@ class Benchmark
 
         stopwatch.Stop();
 
-        var count = matches.Count;
+        int count = matches.Count;
 
         Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds.ToString("G", System.Globalization.CultureInfo.InvariantCulture) + " - " + count);
     }
