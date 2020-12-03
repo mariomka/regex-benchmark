@@ -84,9 +84,9 @@ RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
         nodejs
 
 ## Julia
-RUN wget -q https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.2-linux-x86_64.tar.gz -O julia-1.5.2-linux-x86_64.tar.gz && \
-    tar -x -C /opt -f julia-1.5.2-linux-x86_64.tar.gz && \
-    mv /opt/julia-1.5.2 /opt/julia && \
+RUN wget -q https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz -O julia-1.5.3-linux-x86_64.tar.gz && \
+    tar -x -C /opt -f julia-1.5.3-linux-x86_64.tar.gz && \
+    mv /opt/julia-1.5.3 /opt/julia && \
     ln -s /opt/julia/bin/julia /usr/local/bin/julia
 
 ## Kotlin
