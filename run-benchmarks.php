@@ -27,7 +27,7 @@ const COMMANDS = [
     'C++ STL'      => 'cpp/bin/benchmark-stl',
     'C++ Boost'    => 'cpp/bin/benchmark-boost',
     'C# Mono'      => 'mono -O=all csharp/bin-mono/benchmark.exe',
-    'C# .Net Core' => 'dotnet csharp/bin/Release/netcoreapp3.0/benchmark.dll',
+    'C# .Net Core' => 'dotnet csharp/bin/Release/net5.0/benchmark.dll',
     'D dmd'        => 'd/bin/benchmark',
     'D ldc'        => 'd/bin/benchmark-ldc',
     'Dart'         => 'dart dart/benchmark.dart',
