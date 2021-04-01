@@ -80,7 +80,7 @@ RUN apt-get install -yq --no-install-recommends \
         openjdk-11-jdk
 
 ## Javascript - Node
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
     apt-get install -yq --no-install-recommends \
         nodejs
 
