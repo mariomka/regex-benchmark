@@ -94,7 +94,7 @@ RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v1.3.50/kotlin
 ## Nim
 RUN curl https://nim-lang.org/choosenim/init.sh -sSf | sh -s -- -y && \
     ln -s /root/.nimble/bin/nim /usr/local/bin/nim && \
-    ln -s /root/.nimble/bin/nimble /usr/local/bin/nimble
+    /root/.nimble/bin/nimble install regex -y
 
 ## PHP
 RUN apt-get install -yq --no-install-recommends \

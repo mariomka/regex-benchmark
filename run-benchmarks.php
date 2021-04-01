@@ -18,7 +18,7 @@ const BUILDS = [
     'Java'         => 'javac java/Benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Nim'          => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark nim/benchmark.nim',
-    'Nim Regex'    => 'nimble install regex -y && nim c -d:danger --verbosity:0 -o:nim/bin/benchmark_regex nim/benchmark_regex.nim',
+    'Nim Regex'    => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark_regex nim/benchmark_regex.nim',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
 
