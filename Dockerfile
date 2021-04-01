@@ -109,18 +109,18 @@ RUN apt-get install -yq --no-install-recommends \
         python3.6
 
 ## Pyhton2 - PyPy2
-RUN wget -q https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.2.0-linux64.tar.bz2 -O pypy2.7-v7.2.0-linux64.tar.bz2 && \
-    tar -x -C /opt -f pypy2.7-v7.2.0-linux64.tar.bz2 && \
-    mv /opt/pypy2.7-v7.2.0-linux64 /opt/pypy2 && \
+RUN wget -q https://downloads.python.org/pypy/pypy2.7-v7.3.3-linux64.tar.bz2 -O pypy2.7-v7.3.3-linux64.tar.bz2 && \
+    tar -x -C /opt -f pypy2.7-v7.3.3-linux64.tar.bz2 && \
+    mv /opt/pypy2.7-v7.3.3-linux64 /opt/pypy2 && \
     ln -s /opt/pypy2/bin/pypy /usr/local/bin/pypy2 && \
-    rm pypy2.7-v7.2.0-linux64.tar.bz2
+    rm pypy2.7-v7.3.3-linux64.tar.bz2
 
 ## Pyhton3 - PyPy3
-RUN wget -q https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.2.0-linux64.tar.bz2 -O pypy3.6-v7.2.0-linux64.tar.bz2 && \
-    tar -x -C /opt -f pypy3.6-v7.2.0-linux64.tar.bz2 && \
-    mv /opt/pypy3.6-v7.2.0-linux64 /opt/pypy3 && \
+RUN wget -q https://downloads.python.org/pypy/pypy3.6-v7.3.3-linux64.tar.bz2 -O pypy3.6-v7.3.3-linux64.tar.bz2 && \
+    tar -x -C /opt -f pypy3.6-v7.3.3-linux64.tar.bz2 && \
+    mv /opt/pypy3.6-v7.3.3-linux64 /opt/pypy3 && \
     ln -s /opt/pypy3/bin/pypy3 /usr/local/bin/pypy3 && \
-    rm pypy3.6-v7.2.0-linux64.tar.bz2
+    rm pypy3.6-v7.3.3-linux64.tar.bz2
 
 ## Ruby
 RUN apt-get install -yq --no-install-recommends \
