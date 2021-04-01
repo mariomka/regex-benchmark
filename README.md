@@ -71,22 +71,23 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 
 ### Versions and notes
 
-- **C**: gcc 7.5.0 & PCRE2 10.31-2
-- **Crystal**: crystal 0.34.0 - LLVM: 8.0.0
+- **C**: gcc 7.5.0 & PCRE2 10.36-2
+- **Crystal**: crystal 0.35.1 - LLVM: 8.0.0
 - **C++**: g++ 7.5.0 | Boost 1.65.1.0
-- **C#**: dotnet 3.1.201 | Mono 6.8.0.105
+- **C#**: dotnet 5.0.201 | Mono 6.12.0.122
 - **D**: DMD v2.089.0 | LDC 1.8.0
-- **Dart**: Dart 2.7.2
-- **Go**: go 1.14.2
-- **Java**: OpenJDK 11.0.7
-- **Javascript**: node v13.14.0
-- **Kotlin**: kotlinc-jvm 1.3.50
-- **Nim**: Nim 1.2.0
+- **Dart**: Dart 2.12.2
+- **Go**: go 1.16.2
+- **Java**: OpenJDK 11.0.10
+- **Javascript**: node v15.13.0
+- **Julia**: Julia 1.6.0
+- **Kotlin**: kotlinc-jvm 1.4.32
+- **Nim**: Nim 1.4.4
 - **Perl**: perl v5.26.1
-- **PHP**: PHP 7.2.24
-- **Python**: Python 2.7.17 | Python 3.6.0 | PyPy 7.2.0
+- **PHP**: PHP 8.0.3
+- **Python**: Python 2.7.17 | Python 3.6.9 | PyPy 7.3.3
 - **Ruby**: ruby 2.5.1p57
-- **Rust**: rustc 1.43.0 & regex 1.3.5
+- **Rust**: rustc 1.51.0 & regex 1.4.5
 
 # How to run
 
@@ -96,7 +97,7 @@ The easiest way to run the benchmark is by using Docker.
 git clone https://github.com/mariomka/regex-benchmark.git
 git checkout optimized
 cd regex-benchmark
-docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.5
+docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.6
 ```
 
 # Contributing
