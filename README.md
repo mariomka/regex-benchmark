@@ -32,33 +32,35 @@ Elapsed time include pattern compilation, find and count occurrences.
 
 ## Performance
 
-Docker image was run on: MacBook Pro (Retina, 15-inch, 2017), 2.8 GHz Intel Core i7, 16 GB 1600 Mhz DDR3 with macOS Catalina 10.15.3.
+Docker image was run on: MacBook Pro (16-inch, 2019), 2.4 GHz Intel Core i9, 32 GB 2667 Mhz DDR4 with macOS Big Sur 11.2.3.
 
 Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 --- | ---: | ---: | ---: | ---:
-**Nim** | 28.28 | 28.58 | 9.20 | 66.06
-**PHP** | 29.20 | 28.05 | 9.12 | 66.37
-**Rust** | 59.58 | 56.31 | 6.63 | 122.52
-**Javascript** | 81.87 | 67.16 | 2.04 | 151.07
-**C++ Boost** | 92.99 | 92.21 | 31.16 | 216.36
-**Perl** | 119.22 | 84.36 | 53.89 | 257.47
-**Dart** | 161.10 | 156.19 | 148.52 | 465.82
-**Crystal** | 322.07 | 284.07 | 25.16 | 631.30
-**C PCRE2** | 325.02 | 297.94 | 37.61 | 660.57
-**Python PyPy2** | 215.48 | 197.57 | 374.35 | 787.40
-**D dmd** | 394.74 | 408.07 | 9.79 | 812.60
-**Ruby** | 419.26 | 374.27 | 68.22 | 861.75
-**D ldc** | 452.97 | 456.02 | 9.77 | 918.76
-**Python PyPy3** | 354.38 | 314.82 | 367.19 | 1036.39
-**Go** | 338.22 | 342.98 | 514.72 | 1195.92
-**Kotlin** | 281.21 | 312.83 | 730.56 | 1324.60
-**Java** | 310.30 | 326.81 | 732.19 | 1369.30
-**Python 2** | 977.37 | 332.51 | 1200.50 | 2510.39
-**C++ STL** | 895.50 | 783.38 | 1071.07 | 2749.95
-**Python 3** | 1134.41 | 397.06 | 1220.28 | 2751.75
-**Dart Native** | 2114.06 | 2399.51 | 38.76 | 4552.32
-**C# .Net Core** | 2414.70 | 2053.11 | 150.13 | 4617.94
-**C# Mono** | 3958.80 | 3291.35 | 217.47 | 7467.61
+**Nim Regex** | 1.34 | 28.47 | 8.50 | 38.31
+**Nim** | 24.64 | 24.21 | 7.95 | 56.80
+**Rust** | 29.35 | 28.50 | 5.74 | 63.60
+**PHP** | 48.03 | 50.37 | 6.05 | 104.45
+**C++ Boost** | 48.26 | 47.07 | 16.46 | 111.79
+**Javascript** | 67.23 | 53.20 | 1.63 | 122.07
+**Perl** | 109.86 | 70.71 | 23.55 | 204.12
+**Julia** | 115.88 | 104.05 | 5.83 | 225.76
+**Crystal** | 137.65 | 120.79 | 13.36 | 271.80
+**C PCRE2** | 138.43 | 124.65 | 14.88 | 277.95
+**C# .Net Core** | 126.46 | 117.80 | 46.81 | 291.06
+**Dart** | 117.10 | 120.32 | 86.90 | 324.32
+**D ldc** | 195.52 | 190.05 | 5.92 | 391.49
+**D dmd** | 200.37 | 209.69 | 5.98 | 416.03
+**Ruby** | 264.40 | 239.83 | 49.75 | 553.98
+**Python PyPy2** | 177.42 | 167.11 | 295.63 | 640.16
+**Dart Native** | 303.60 | 342.46 | 7.03 | 653.09
+**Python 2** | 228.21 | 154.94 | 333.56 | 716.71
+**Kotlin** | 203.95 | 243.32 | 328.93 | 776.20
+**Java** | 218.89 | 249.52 | 318.91 | 787.33
+**Python PyPy3** | 307.71 | 257.41 | 295.11 | 860.23
+**Python 3** | 311.63 | 213.58 | 351.09 | 876.30
+**Go** | 271.04 | 268.09 | 402.93 | 942.06
+**C++ STL** | 484.52 | 385.94 | 279.89 | 1150.35
+**C# Mono** | 3160.56 | 2644.61 | 157.11 | 5962.27
 
 ### Optimized
 
@@ -96,23 +98,23 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 
 ### Versions and notes
 
-- **C**: gcc 7.5.0 & PCRE2 10.31-2
-- **Crystal**: crystal 0.34.0 - LLVM: 8.0.0
+- **C**: gcc 7.5.0 & PCRE2 10.36-2
+- **Crystal**: crystal 0.35.1 - LLVM: 8.0.0
 - **C++**: g++ 7.5.0 | Boost 1.65.1.0
-- **C#**: dotnet 3.1.201 | Mono 6.8.0.105
+- **C#**: dotnet 5.0.201 | Mono 6.12.0.122
 - **D**: DMD v2.089.0 | LDC 1.8.0
-- **Dart**: Dart 2.7.2
-- **Go**: go 1.14.2
-- **Java**: OpenJDK 11.0.7
-- **Javascript**: node v13.14.0
+- **Dart**: Dart 2.12.2
+- **Go**: go 1.16.2
+- **Java**: OpenJDK 11.0.10
+- **Javascript**: node v15.13.0
 - **Julia**: Julia 1.6.0
-- **Kotlin**: kotlinc-jvm 1.3.50
-- **Nim**: Nim 1.2.0
+- **Kotlin**: kotlinc-jvm 1.4.32
+- **Nim**: Nim 1.4.4
 - **Perl**: perl v5.26.1
-- **PHP**: PHP 7.2.24
-- **Python**: Python 2.7.17 | Python 3.6.0 | PyPy 7.2.0
+- **PHP**: PHP 8.0.3
+- **Python**: Python 2.7.17 | Python 3.6.9 | PyPy 7.3.3
 - **Ruby**: ruby 2.5.1p57
-- **Rust**: rustc 1.43.0 & regex 1.3.5
+- **Rust**: rustc 1.51.0 & regex 1.4.5
 
 # How to run
 
@@ -121,7 +123,7 @@ The easiest way to run the benchmark is by using Docker.
 ```sh
 git clone https://github.com/mariomka/regex-benchmark.git
 cd regex-benchmark
-docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.5
+docker run --rm -v $(pwd):/var/regex mariomka/regex-benchmark:1.6
 ```
 
 # Contributing
