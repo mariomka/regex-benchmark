@@ -18,6 +18,7 @@ const BUILDS = [
     'Java'         => 'javac java/Benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Nim'          => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark nim/benchmark.nim',
+    'Nim Regex'    => 'nimble install regex -y && nim c -d:danger --verbosity:0 -o:nim/bin/benchmark_regex nim/benchmark_regex.nim',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
 
@@ -37,6 +38,7 @@ const COMMANDS = [
     'Javascript'   => 'node javascript/benchmark.js',
     'Kotlin'       => 'kotlin kotlin/benchmark.jar',
     'Nim'          => 'nim/bin/benchmark',
+    'Nim Regex'    => 'nim/bin/benchmark_regex',
     'Perl'         => 'perl perl/benchmark.pl',
     'PHP'          => 'php php/benchmark.php',
     'Python 2'     => 'python2.7 python/benchmark.py',
