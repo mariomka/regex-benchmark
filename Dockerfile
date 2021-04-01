@@ -91,8 +91,8 @@ RUN wget -q https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.0-lin
     ln -s /opt/julia/bin/julia /usr/local/bin/julia
 
 ## Kotlin
-RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v1.3.50/kotlin-compiler-1.3.50.zip -O kotlin-compiler-1.3.50.zip && \
-    unzip kotlin-compiler-1.3.50.zip -d /opt/ && \
+RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v1.4.32/kotlin-compiler-1.4.32.zip -O kotlin-compiler-1.4.32.zip && \
+    unzip kotlin-compiler-1.4.32.zip -d /opt/ && \
     echo 'export PATH=$PATH:/opt/kotlinc/bin' >> ~/.bashrc && \
     ln -s /opt/kotlinc/bin/kotlin /usr/local/bin/kotlin && \
     ln -s /opt/kotlinc/bin/kotlinc /usr/local/bin/kotlinc
