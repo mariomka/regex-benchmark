@@ -36,6 +36,7 @@ const COMMANDS = [
     'Go'           => 'go/bin/benchmark',
     'Java'         => 'java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -classpath java Benchmark',
     'Javascript'   => 'node javascript/benchmark.js',
+    'Julia'        => 'julia julia/benchmark.jl',
     'Kotlin'       => 'kotlin kotlin/benchmark.jar',
     'Nim'          => 'nim/bin/benchmark',
     'Nim Regex'    => 'nim/bin/benchmark_regex',
