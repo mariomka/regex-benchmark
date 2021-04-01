@@ -27,7 +27,8 @@ ENV LC_ALL en_US.UTF-8
 
 ## C
 RUN apt-get install -yq --no-install-recommends \
-        libpcre2-dev
+        libpcre2-dev && \
+        apt-mark hold libpcre2-dev
 
 ## Crystal
 RUN curl -sSL https://dist.crystal-lang.org/apt/setup.sh | bash && \
