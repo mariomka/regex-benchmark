@@ -64,7 +64,6 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 **Dart Native** | 2116.81 | 2396.46 | 38.58 | 4551.85
 **C# Mono** | 2384.82 | 1991.34 | 216.20 | 4592.36
 
-
 - **Language**: Indicates the language.
 - **Email(ms)**, **URI(ms)**, **IP(ms)**: Indicates the time elapsed in milliseconds for finding and counting non-overlapping occurrences for the pattern.
 - **Total(ms)**: Indicates the sum of the above times.
