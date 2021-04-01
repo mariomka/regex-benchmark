@@ -105,7 +105,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **Go**: go 1.14.2
 - **Java**: OpenJDK 11.0.7
 - **Javascript**: node v13.14.0
-- **Julia**: Julia 1.5.2
+- **Julia**: Julia 1.6.0
 - **Kotlin**: kotlinc-jvm 1.3.50
 - **Nim**: Nim 1.2.0
 - **Perl**: perl v5.26.1
