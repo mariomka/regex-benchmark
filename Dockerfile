@@ -26,9 +26,9 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 ## C
-RUN apt-get install -yq --no-install-recommends \
-        libpcre2-dev && \
-        apt-mark hold libpcre2-dev
+# PCRE is installed with PHP 8
+#RUN apt-get install -yq --no-install-recommends \
+#        libpcre2-dev
 
 ## Crystal
 RUN curl -sSL https://dist.crystal-lang.org/apt/setup.sh | bash && \
@@ -107,6 +107,7 @@ RUN curl https://nim-lang.org/choosenim/init.sh -sSf | sh -s -- -y && \
 RUN add-apt-repository ppa:ondrej/php --yes && \
         apt-get update && \
         apt-get install -yq --no-install-recommends \
+            libpcre2-dev \
             php8.0-cli
 
 ## Python 2
