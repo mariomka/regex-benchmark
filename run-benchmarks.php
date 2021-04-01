@@ -14,10 +14,11 @@ const BUILDS = [
     'D dmd'        => 'dmd -O -release -inline -of=d/bin/benchmark d/benchmark.d',
     'D ldc'        => 'ldc2 -O3 -release -of=d/bin/benchmark-ldc d/benchmark.d',
     'Dart Native'  => 'mkdir -p /var/regex/dart/bin && dart2native dart/benchmark.dart -o dart/bin/benchmark',
-    'Go'           => 'go build -ldflags "-s -w" -o go/bin/benchmark ./go',
+    'Go'           => 'go env -w GO111MODULE=auto && go build -ldflags "-s -w" -o go/bin/benchmark ./go',
     'Java'         => 'javac java/Benchmark.java',
     'Kotlin'       => 'kotlinc kotlin/benchmark.kt -include-runtime -d kotlin/benchmark.jar',
     'Nim'          => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark nim/benchmark.nim',
+    'Nim Regex'    => 'nim c -d:release --opt:speed --verbosity:0 -o:nim/bin/benchmark_regex nim/benchmark_regex.nim',
     'Rust'         => 'cargo build --quiet --release --manifest-path=rust/Cargo.toml',
 ];
 
@@ -37,6 +38,7 @@ const COMMANDS = [
     'Javascript'   => 'node javascript/benchmark.js',
     'Kotlin'       => 'kotlin kotlin/benchmark.jar',
     'Nim'          => 'nim/bin/benchmark',
+    'Nim Regex'    => 'nim/bin/benchmark_regex',
     'Perl'         => 'perl perl/benchmark.pl',
     'PHP'          => 'php php/benchmark.php',
     'Python 2'     => 'python2.7 python/benchmark.py',
