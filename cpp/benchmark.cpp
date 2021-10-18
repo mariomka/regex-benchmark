@@ -1,8 +1,17 @@
 #include <chrono>
 #include <fstream>
 #include <iostream>
-#include <regex>
-#include <boost/regex.hpp>
+
+#ifdef USE_BOOST
+  #include <boost/regex.hpp>
+  #define REGEX_NAMESPACE boost
+#elif USE_SRELL
+  #include <srell.hpp>
+  #define REGEX_NAMESPACE srell
+#else
+  #include <regex>
+  #define REGEX_NAMESPACE std
+#endif
 
 void measure(const std::string& data, const std::string& pattern) {
   using clock = std::chrono::high_resolution_clock;
