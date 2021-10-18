@@ -37,7 +37,11 @@ RUN curl -sSL https://dist.crystal-lang.org/apt/setup.sh | bash && \
 
 ## C++
 RUN apt-get install -yq --no-install-recommends \
-        libboost-regex-dev
+        libboost-regex-dev && \
+    wget -q http://www.akenotsuki.com/misc/srell/srell-latest -O srell.zip && \
+    mkdir -p /tmp/srell && \
+    unzip srell.zip -d /tmp/srell && \
+    cp -p -u /tmp/srell/single-header/srell.hpp /usr/local/include
 
 ## C# Mono
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
