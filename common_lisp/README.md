@@ -1,4 +1,4 @@
-# C++ Benchmark
+# Common Lisp Benchmark
 
 ## How to build
 
