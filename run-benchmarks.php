@@ -6,6 +6,7 @@ const RUN_TIMES = 10;
 
 const BUILDS = [
     'C PCRE2'      => 'gcc -O3 -DNDEBUG c/benchmark.c -I/usr/local/include/ -lpcre2-8 -o c/bin/benchmark',
+	'Common Lisp'  => 'common_lisp/quicklisp.sh'
     'Crystal'      => 'crystal build crystal/benchmark.cr --release -o crystal/bin/benchmark',
     'C++ STL'      => 'g++ -std=c++11 -O3 cpp/benchmark.cpp -o cpp/bin/benchmark-stl',
     'C++ Boost'    => 'g++ -std=c++11 -O3 cpp/benchmark.cpp -DUSE_BOOST -lboost_regex -o cpp/bin/benchmark-boost',
@@ -25,6 +26,7 @@ const BUILDS = [
 
 const COMMANDS = [
     'C PCRE2'      => 'c/bin/benchmark',
+	'Common Lisp'  => 'sbcl --script common_lisp/benchmark.lisp'
     'Crystal'      => 'crystal/bin/benchmark',
     'C++ STL'      => 'cpp/bin/benchmark-stl',
     'C++ Boost'    => 'cpp/bin/benchmark-boost',
