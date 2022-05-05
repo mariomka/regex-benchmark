@@ -50,6 +50,7 @@ const COMMANDS = [
     'Python PyPy3' => 'pypy3 python/benchmark.py',
     'Ruby'         => 'ruby ruby/benchmark.rb',
     'Rust'         => 'rust/target/release/benchmark',
+	'Tcl'          => 'tclsh tcl/benchmark.tcl',
 ];
 
 echo '- Build' . PHP_EOL;
