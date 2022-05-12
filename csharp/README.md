@@ -6,7 +6,7 @@
 # Mono
 mcs Benchmark.cs -out:bin-mono/benchmark.exe -debug- -optimize
 
-# .Net Core
+# .NET
 dotnet build -c Release
 ```
 
@@ -16,6 +16,6 @@ dotnet build -c Release
 # Mono
 mono -O=all bin-mono/benchmark.exe <filename>
 
-# .Net Core
+# .NET
 dotnet bin/Release/net6.0/benchmark.dll <filename>
 ```
