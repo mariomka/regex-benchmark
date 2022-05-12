@@ -103,7 +103,7 @@ Language | Email(ms) | URI(ms) | IP(ms) | Total(ms)
 - **C**: gcc 7.5.0 & PCRE2 10.36-2
 - **Crystal**: crystal 0.35.1 - LLVM: 8.0.0
 - **C++**: g++ 7.5.0 | Boost 1.65.1.0
-- **C#**: dotnet 5.0.201 | Mono 6.12.0.122
+- **C#**: .NET 5 | Mono 6.12.0.122
 - **D**: DMD v2.089.0 | LDC 1.8.0
 - **Dart**: Dart 2.12.2
 - **Go**: go 1.16.2

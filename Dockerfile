@@ -50,12 +50,12 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
     apt-get install -yq --no-install-recommends \
         mono-devel
 
-## C# .Net Core
+## C# .NET
 RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
     apt-get update && \
     apt-get install -yq --no-install-recommends \
-        dotnet-sdk-5.0
+        dotnet-sdk-6.0
 
 ## D - DMD
 RUN wget -q http://downloads.dlang.org/releases/2.x/2.089.0/dmd_2.089.0-0_amd64.deb -O dmd_2.089.0-0_amd64.deb && \

@@ -3,18 +3,17 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-class Benchmark
+static class Benchmark
 {
-    static void Main(string[] args)
+    static int Main(string[] args)
     {
         if (args.Length != 1)
         {
             Console.WriteLine("Usage: benchmark <filename>");
-            Environment.Exit(1);
+            return 1;
         }
 
-        StreamReader reader = new System.IO.StreamReader(args[0]);
-        string data = reader.ReadToEnd();
+        string data = File.ReadAllText(args[0]);
 
         // Email
         Benchmark.Measure(data, @"[\w\.+-]+@[\w\.-]+\.[\w\.-]+");
@@ -24,6 +23,8 @@ class Benchmark
 
         // IP
         Benchmark.Measure(data, @"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
+
+        return 0;
     }
 
     static void Measure(string data, string pattern)
