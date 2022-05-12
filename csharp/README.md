@@ -17,5 +17,5 @@ dotnet build -c Release
 mono -O=all bin-mono/benchmark.exe <filename>
 
 # .Net Core
-dotnet bin/Release/net5.0/benchmark.dll <filename>
+dotnet bin/Release/net6.0/benchmark.dll <filename>
 ```
