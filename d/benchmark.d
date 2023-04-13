@@ -5,12 +5,12 @@ import std.datetime;
 import std.datetime.stopwatch : StopWatch, AutoStart;
 import core.stdc.stdlib;
 
-void measure(string data, string pattern) {
+void measure(string pattern)(string data) {
     int count = 0;
 
     auto sw = StopWatch(AutoStart.yes);
 
-    foreach (m; data.matchAll(regex(pattern))) {
+    foreach (m; data.matchAll(ctRegex!(pattern))) {
         count++;
     }
 
@@ -29,11 +29,11 @@ void main(string [] args) {
     string data = readText(args[1]);
 
     // Email
-    measure(data, r"[\w\.+-]+@[\w\\.-]+\.[\w\.-]+");
+    measure!(r"[\w\.+-]+@[\w\\.-]+\.[\w\.-]+")(data);
 
     // URI
-    measure(data, r"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?");
+    measure!(r"[\w]+://[^/\s?#]+[^\s?#]+(?:\?[^\s#]*)?(?:#[^\s]*)?")(data);
 
     // IP
-    measure(data, r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])");
+    measure!(r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])")(data);
 }
