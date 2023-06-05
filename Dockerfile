@@ -136,6 +136,10 @@ RUN wget -q https://downloads.python.org/pypy/pypy3.6-v7.3.3-linux64.tar.bz2 -O 
     ln -s /opt/pypy3/bin/pypy3 /usr/local/bin/pypy3 && \
     rm pypy3.6-v7.3.3-linux64.tar.bz2
 
+## R
+RUN apg-get install -yq --no-install-recommends \
+        r-base r-cran-stringr r-cran-readr
+
 ## Ruby
 RUN apt-get install -yq --no-install-recommends \
         ruby-full
