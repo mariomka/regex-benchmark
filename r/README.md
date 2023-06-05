@@ -4,5 +4,5 @@
 
 ```sh
 # R
-RScript --vanilla benchmark.R <filename>
+Rscript --vanilla benchmark.R <filename>
 ```
