@@ -48,6 +48,7 @@ const COMMANDS = [
     'Python 3'     => 'python3.6 python/benchmark.py',
     'Python PyPy2' => 'pypy2 python/benchmark.py',
     'Python PyPy3' => 'pypy3 python/benchmark.py',
+    'R'            => 'Rscript --vanilla r/benchmark.R',
     'Ruby'         => 'ruby ruby/benchmark.rb',
     'Rust'         => 'rust/target/release/benchmark',
 ];
